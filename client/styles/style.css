@@ -1,0 +1,27 @@
+.panel-in-play {
+    background: #2246D5;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #2246D5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+}
+
+h2 {
+    font-family: 'blanchcaps_inline', sans-serif;
+    text-align: center;
+    color: white;
+    font-weight: normal;
+    margin: 0;
+}
+
+span {
+    color: white;
+}

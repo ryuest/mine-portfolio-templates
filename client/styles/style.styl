@@ -1,0 +1,37 @@
+@import '_normalize.styl'
+@import '_typography.styl'
+@import '_animations.styl'
+
+body
+  background offwhite
+
+.panel-in-play
+  border-top 2px solid black
+  border-bottom 1px solid black
+  padding-top 5px
+  margin-top 2rem
+  transform translateZ(0);
+
+.panel-highlights
+  border-top 2px solid black
+  border-bottom 1px solid black
+  padding-top 5px
+  margin-top 2rem
+  transform translateZ(0);
+
+button, .button
+  border 2px solid lighten(grey, 90%)
+  background none
+  flex-basis 48%
+  display inline-block
+  line-height 2
+  text-decoration none
+  padding 5px
+  text-align center
+  font-size 15px
+  color blue
+  transition all 0.2s
+  box-sizing padding-box
+  &:hover, &:focus
+    border-color blue
+    outline 0
