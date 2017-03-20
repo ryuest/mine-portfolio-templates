@@ -7,12 +7,12 @@ const LeftNavigation = React.createClass({
               <nav>
                 <ul className="c-list-icon">
                   <li id="nav-homepage">
-                    <a href="/TODO">
+                    <a className="c-list_item" href="/TODO">
                       <span>Homepage</span>
                     </a>
                   </li>
                   <li id="nav-in-play">
-                    <a href="/TODO">
+                    <a className="c-list_item" href="/TODO">
                       <span>InPlay</span>
                     </a>
                   </li>

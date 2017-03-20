@@ -4,22 +4,24 @@ const CenterTabs = React.createClass({
     render() {
         return (
             <div className="tabs_panels">
-                <section className="panel-in-play">
-                    <div className="sectionheading_desktop">
+                <section className="tabs_panels-panel" data-panel="panel-in-play">
+                  <span>
+                    <div className="sectionheading">
                         <h2 className="h1 fl">In-Play</h2>
                     </div>
                     <section className="inplay">
                         <div id="sport-events"></div>
                     </section>
+                  </span>
                 </section>
 
-                <section className="panel-highlights">
+                <section className="tabs_panels-panel" data-panel="panel-highlights">
                     <span>
-                        <section className="sectionheading desktop-info">
+                        <section className="sectionheading">
                             <h2 className="h1 cap">Highlights</h2>
                         </section>
                         <div className="sport-container">
-                            <header className="header-dropdown">>
+                            <header className="header-dropdown">
                                 <h2 className="fl">Football</h2>
                                 <div className="header_side">
                                     <aside className="header_toolbar">
@@ -31,7 +33,7 @@ const CenterTabs = React.createClass({
                                 </div>
                             </header>
                         </div>
-                        <section id="match-highlights">
+                        <section id="match-highlights" className="betgroup">
                             <div className="markets-group-container">
                                 <header className="header-dropdown">>
                                     <h2 className="fl">90 Minutes</h2>

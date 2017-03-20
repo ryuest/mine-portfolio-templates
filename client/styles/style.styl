@@ -3,35 +3,311 @@
 @import '_animations.styl'
 
 body
-  background offwhite
+  color #222
+  font-family Arial,Helvetica,"Helvetica Neue",sans-serif
+  font-size 16px
 
-.panel-in-play
-  border-top 2px solid black
-  border-bottom 1px solid black
-  padding-top 5px
-  margin-top 2rem
-  transform translateZ(0);
+a
+  color: #248CB3;
+  font-weight: 700;
+  line-height: inherit;
 
-.panel-highlights
-  border-top 2px solid black
-  border-bottom 1px solid black
-  padding-top 5px
-  margin-top 2rem
-  transform translateZ(0);
+h1
+  font-weight 700
 
-button, .button
-  border 2px solid lighten(grey, 90%)
-  background none
-  flex-basis 48%
-  display inline-block
-  line-height 2
-  text-decoration none
-  padding 5px
+h2
+  display block
+  font-size 1.5em
+  font-weight bold
+  -webkit-margin-before 0.83em
+  -webkit-margin-after 0.83em
+  -webkit-margin-start 0px
+  -webkit-margin-end 0px
+
+h3
+  display block
+  font-size 1.17em
+  -webkit-margin-before 1em
+  -webkit-margin-after 1em
+  -webkit-margin-start 0px
+  -webkit-margin-end 0px
+  font-weight bold
+
+fl
+  float left
+
+aside, div, header, a, i, h1, h2, h3, h4, h5, h6, p, section, nav, span, ul, li, ol
+  margin 0
+  padding 0
+  border 0
+  font inherit
+  font-size 100%
+  vertical-align baseline
+
+aside, div, footer, header, main, menu, nav, section
+  display: block;
+
+*, :after, :before
+ box-sizing border-box
+
+li
+  display: list-item;
+
+ol, ul
+  list-style: none;
+
+ul
+  display: block;
+  margin-before: 1em;
+  margin-after: 1em;
+  margin-start: 0px;
+  margin-end: 0px;
+  padding-start: 40px;
+
+html
+  line-height 1
+
+.button, button-clear
+  -moz-transition background-color .25s linear
+  -o-transition background-color .25s linear
+  -webkit-transition background-color .25s linear
+  transition background-color .25s linear
+  -webkit-user-select none
+  -khtml-user-select none
+  -moz-user-select none
+  -ms-user-select none
+  user-select none
+  color #fff
+  cursor pointer
+  line-height 1.2em
+  margin 0
+  padding .8em 1.6em
   text-align center
-  font-size 15px
-  color blue
-  transition all 0.2s
-  box-sizing padding-box
-  &:hover, &:focus
-    border-color blue
-    outline 0
+  vertical-align middle
+  -moz-border-radius .3125em
+  -webkit-border-radius .3125em
+  border-radius .3125em
+  border 1px solid transparent
+  font-weight 700
+  background-color #184b74
+  font-size 12px
+  display inline-block
+
+.off-canvas_inner-wrapper
+  display flex
+  height calc(100vh - 56px)
+  justify-content flex-start
+  margin 56px auto 0
+  max-width 1440px
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background #D9D9D9
+
+.off-canvas_left
+  float: left;
+  position: relative;
+  flex: 1 0 280px;
+  left: 0;
+  max-width: 280px;
+  width: auto;
+  padding-left: 12px;
+
+.off-canvas_main
+  width: calc(100% - 584px);
+  margin-top: 0;
+  overflow-y: auto;
+  position: relative;
+  float: left;
+  margin-left: 20;
+  margin-right: 40;
+
+.left-nav
+  flex-grow: 2;
+  list-style: none;
+  margin-left: 0;
+  margin-bottom: 12px;
+  position: fixed;
+  bottom: 0;
+  top: 56px;
+  font-size: 14px;
+  width: 280px;
+  overflow-y: auto;
+
+.tabs_panels
+  position relative
+  overflow hidden
+  width 100%
+
+.tabs_panels
+  display block
+  margin-bottom 1em
+  overflow hidden
+
+.sectionheading
+  line-height 36px
+  margin-bottom 4px
+  max-width 100%
+  margin-left auto
+  margin-right auto
+  position relative
+  font-size 1.16667em
+  padding 1em 0 .5em
+  line-height 20px
+
+.cap
+  text-transform capitalize
+
+.sport-container
+  width 100%
+  float left
+  font-size .75em
+
+.header-dropdown
+  cursor pointer
+  position relative
+  width 100%
+  background-color #007ac0
+  color #fff
+  display table
+  height 3.33333em
+  margin-bottom 1px
+  line-height 14px
+  font-weight 700
+  padding 0 .66667em
+  display table-cell
+  vertical-align middle
+  float none
+  font-size 14px
+
+.header_side
+  float right
+  padding-left .75em
+  padding-right .75em
+  width auto
+  text-align right
+  font-size 0
+  min-width 0
+
+.header_toolbar
+  display flex
+  align-items center
+  border-radius 0
+  height 3.25em
+  width 3.33333em
+  padding 0
+  min-width: 1000px
+
+.button-clear
+  position relative
+
+.icon, [class*=" icon-"], [class^=icon-]
+  font-family whIconFont
+  speak none
+  font-style normal
+  font-weight 400
+  font-variant normal
+  text-transform none
+  -webkit-font-smoothing antialiased
+
+.betbutton
+  background #dadfe5
+  font-size 12px
+  margin-bottom 0
+  padding .9em .125em
+  width 100%
+  outline 0
+  color #222
+  cursor pointer
+  transition: background .25s ease-out;
+  border-radius: 4px;
+  border: 0;
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  max-width: 100%;
+  vertical-align: middle;
+  user-select: none;
+
+.market_wrapper
+  background-color: #FFF;
+  padding: .25rem .5rem;
+
+.market
+  flex-wrap: wrap;
+  background-color: #FFF;
+  font-size: 12px;
+  display: flex;
+  margin-left: -.25rem;
+  margin-right: -.25rem;
+  padding: .125rem 0;
+
+.market_content
+  flex: 0 0 50%;
+  max-width: 50%;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  position: relative;
+  align-items: center;
+  display: flex;
+  padding: 0 .25rem;
+
+.market_name
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  color: #248CB3;
+  cursor: pointer;
+  text-decoration: none;
+
+.market_link-name
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  line-height: 1.25;
+
+.market_actions
+  flex: 1
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+
+.market_selection
+  justify-content space-between
+  position relative
+  text-align center
+  width 100%
+  flex 1
+  flex-direction column
+  display flex
+  padding .125rem .25rem
+  align-self center
+
+.btmarket__content-marginrs
+  flex: 1;
+  max-width: calc(100% - 25px);
+
+.betgroup
+  float: left;
+  width: 100%;
+
+.sport-container
+  width: 100%;
+  float: left;
+  font-size: .75em;
+  min-width: 1000px
+
+.c-list_item
+  display flex
+  background-color: #FFF;
+  border-left: 8px solid #007AC0;
+  color: #007AC0;
+  font-weight: 700;
+  padding-left: 16px
+  border-bottom: 1px solid rgba(0,66,125,.1);
+  padding: 12px;
+  text-decoration: none;
