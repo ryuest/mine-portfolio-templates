@@ -35,7 +35,7 @@ const CenterTabs = React.createClass({
                         </div>
                         <section id="match-highlights" className="betgroup">
                             <div className="markets-group-container">
-                                <header className="header-dropdown">>
+                                <header className="header-dropdown">
                                     <h2 className="fl">90 Minutes</h2>
                                     <div className="header_side">
                                         <aside className="header_toolbar">

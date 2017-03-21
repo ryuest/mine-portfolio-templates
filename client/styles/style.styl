@@ -107,12 +107,14 @@ html
 .off-canvas_left
   float: left;
   position: relative;
-  flex: 1 0 280px;
   left: 0;
   max-width: 280px;
   width: auto;
   padding-left: 12px;
   background blue
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 292px;
 
 .off-canvas_main
   width: calc(100% - 584px);
@@ -122,6 +124,71 @@ html
   float: left;
   margin-left: 20px
   background red
+
+.off-canvas_right
+  float: left;
+  position: relative;
+  left: 0;
+  max-width: 280px;
+  width: auto;
+  padding-left: 12px;
+  background blue
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 292px;
+
+.betslipwrapper
+  background: #FFF;
+  bottom: 0;
+  overflow-y: auto;
+  border-left: none;
+  height: auto;
+  position: fixed;
+  top: 56px;
+  width: 280px;
+  margin-bottom: 12px;
+
+.betslip-container
+  font-family: Arial;
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+
+.betslip-section
+  height: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+.betslip-navigation
+  font-size: 12px;
+  overflow: auto;
+  text-align: center;
+
+.betslip-navigation_menu
+  align-items: stretch;
+  display: flex;
+  justify-content: space-between;
+
+.betslip-navigation_menu-item
+  flex: 1;
+  height: 44px;
+  text-align: center;
+
+.betslip-navigation_menu-link
+  background: #fff;
+  border-top: 4px solid #007ac0;
+  color: #007ac0;
+  display: table;
+  font-weight: 700;
+  height: 44px;
+  padding: 0 8px;
+  width: 100%;
+  text-align: center;
+
+.betslip-navigation_menu-text
+  padding-top: 2px;
+  display: table-cell;
+  vertical-align: middle;
 
 .left-nav
   list-style: none;
