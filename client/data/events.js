@@ -9,12 +9,12 @@ const events = {
                 name: 'QPR U23',
                 id: 'OB_OU1502959977',
                 price: '4/7'
-            }
+            },
             selection2: {
                 name: 'draw',
                 id: 'OB_OU1502959978',
                 price: '29/10'
-            }
+            },
             selection3: {
                 name: 'Hull City U23',
                 id: 'OB_OU1502959979',
@@ -33,12 +33,12 @@ const events = {
                 name: 'Cyprus U23',
                 id: 'OB_OU1502959971',
                 price: '3/7'
-            }
+            },
             selection2: {
                 name: 'draw',
                 id: 'OB_OU1502959972',
                 price: '23/10'
-            }
+            },
             selection3: {
                 name: 'Israel U23',
                 id: 'OB_OU1502959973',
@@ -57,12 +57,12 @@ const events = {
                 name: 'Sporting',
                 id: 'OB_OU1502959976',
                 price: '1/7'
-            }
+            },
             selection2: {
                 name: 'draw',
                 id: 'OB_OU1502959975',
                 price: '22/10'
-            }
+            },
             selection3: {
                 name: 'Stade',
                 id: 'OB_OU1502959974',

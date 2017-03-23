@@ -1,7 +1,8 @@
 import React from 'react';
+import events from '../data/events';
+import competitions from '../data/competitions';
 
-
-function MarketSelection() {
+function Selection() {
     return (
       <div className="market_selection">
           <button id="ID from JSON" className="betbutton" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
@@ -12,7 +13,28 @@ function MarketSelection() {
     );
 }
 
-const CenterTabs = React.createClass({
+function Market(key) {
+  return (
+    <div id="ID from JSON" className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
+      {
+        Object
+          .keys(this.state.events)
+          .map(key => <Selection key={key} details={this.state.events.market.selection[key]} />)
+      }
+    </div>
+  )
+}
+
+class CenterTabs extends React.Component {
+  constructor() {
+    super();
+
+        this.state = {
+            competitions: competitions,
+            events: events
+        }
+    }
+
     render() {
         return (
             <div className="tabs_panels">
@@ -100,6 +122,6 @@ const CenterTabs = React.createClass({
             </div>
           )
       }
-  });
+  }
 
   export default CenterTabs;
