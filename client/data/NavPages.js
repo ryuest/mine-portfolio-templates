@@ -1,15 +1,21 @@
-const Pages = {
+const pages = {
   page1: {
-    name: 'Homepage',
+    name: 'Homepage2',
     href: 'http://google.com',
-    id: 'nav-homepage',
+    id: 'nav-homepage'
   },
 
   page2: {
     name: 'InPlay',
     href: 'https://ryuest.github.io',
-    id: 'nav-in-play',
+    id: 'nav-in-play'
+  },
+
+  page3: {
+    name: 'Search',
+    href: 'http://www.uefa.com',
+    id: 'nav-search'
   }
 };
 
-export default Pages;
+export default pages;

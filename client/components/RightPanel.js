@@ -1,4 +1,7 @@
 import React from 'react';
+import Game from '../simpleTests/game';
+
+
 
 const RightPanel = React.createClass({
     render() {
@@ -20,6 +23,9 @@ const RightPanel = React.createClass({
                                 </li>
                             </ul>
                         </nav>
+                    </div>
+                    <div className="fb_tutorial">
+                        <Game/>
                     </div>
                 </div>
             </div>
