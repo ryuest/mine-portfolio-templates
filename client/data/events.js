@@ -1,6 +1,8 @@
 const events = {
     event1: {
         name: 'QPR U23 vs Hull City U23',
+        nameTeam1: 'QPR U23',
+        nameTeam2: 'Hull City U23',
         id: 'OB_EV10833665',
         market: {
             name: 'Match Betting Live',
@@ -25,6 +27,8 @@ const events = {
 
     event2: {
         name: 'Cyprus U23 vs Israel U23',
+        nameTeam1: 'Cyprus U23',
+        nameTeam2: 'Israel U23',
         id: 'OB_EV10833661',
         market: {
             name: 'Match Betting Live',
@@ -49,6 +53,8 @@ const events = {
 
     event3: {
         name: 'Sporting vs Stade',
+        nameTeam1: 'Sporting',
+        nameTeam2: 'Stade',
         id: 'OB_EV10833666',
         market: {
             name: 'Match Betting Live',

@@ -2,32 +2,68 @@ import React from 'react';
 import events from '../data/events';
 import competitions from '../data/competitions';
 
-function Selection() {
-    return (
-      <div className="market_selection">
-          <button id="ID from JSON" className="betbutton" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-              <span className="betbutton_odds">1/2</span>
-              <span className="icon"></span>
-          </button>
-      </div>
-    );
-}
+const Selection = React.createClass({
+  render() {
+const { details } = this.props;
+      return (
+        <div className="market_selection">
+            <button id={details.id} className="betbutton" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
+                <span className="betbutton_odds">{details.price}</span>
+                <span className="icon"></span>
+            </button>
+        </div>
+      )
+  }
+});
 
-function Market(key) {
-  return (
-    <div id="ID from JSON" className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-      {
-        Object
-          .keys(this.state.events)
-          .map(key => <Selection key={key} details={this.state.events.market.selection[key]} />)
-      }
-    </div>
-  )
+const Market = React.createClass({
+  render() {
+const { details } = this.props;
+      return (
+        <div id={details.id} className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
+          <Selection details={details.selection1} />
+          <Selection details={details.selection2} />
+          <Selection details={details.selection3} />
+        </div>
+      )
+  }
+});
+
+//   {Object.keys(this.state.events).map(key => <Selection key={key} details={this.state.events.market.selection[key]}/>)}
+
+class Event extends React.Component {
+    render() {
+const { details} = this.props;
+    return (
+        <div className="event">
+            <div className="market">
+                <div className="market_content">
+                    <ul className="btmarket__content-marginrs">
+                        <li>
+                            <a title={details.name} className="market_name" href="/TODO">
+                                <div className="market_link-name">
+                                    <span>{details.nameTeam1}</span>
+                                    <span>{details.nameTeam2}</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            <Market details={details.market} />
+            </div>
+        </div>
+    )
 }
+}
+// <Market details={details} />
+//{...this.props} key={i} i={i} market={market} />)}
+// {Object.keys(this.state.events).map(key => <Market key={key} details={this.state.events.market[key]}/>)}
+
+//   {this.props.posts.map((post, i) => <Photo {...this.props} key={i} i={i} post={post} />)}
 
 class CenterTabs extends React.Component {
-  constructor() {
-    super();
+    constructor() {
+        super();
 
         this.state = {
             competitions: competitions,
@@ -39,14 +75,14 @@ class CenterTabs extends React.Component {
         return (
             <div className="tabs_panels">
                 <section className="tabs_panels-panel" data-panel="panel-in-play">
-                  <span>
-                    <div className="sectionheading">
-                        <h2 className="h1 fl">In-Play</h2>
-                    </div>
-                    <section className="inplay">
-                        <div id="sport-events"></div>
-                    </section>
-                  </span>
+                    <span>
+                        <div className="sectionheading">
+                            <h2 className="h1 fl">In-Play</h2>
+                        </div>
+                        <section className="inplay">
+                            <div id="sport-events"></div>
+                        </section>
+                    </span>
                 </section>
 
                 <section className="tabs_panels-panel" data-panel="panel-highlights">
@@ -82,37 +118,7 @@ class CenterTabs extends React.Component {
                                 </header>
                                 <div className="events-group-container">
                                     <section className="market_wrapper">
-                                        <div className="event">
-                                            <div className="market">
-                                                <div className="market_content">
-                                                    <ul className="btmarket__content-marginrs">
-                                                        <li>
-                                                            <a title="title from JSON" className="market_name" href="/TODO">
-                                                                <div className="market_link-name">
-                                                                    <span>Man Utd</span>
-                                                                    <span>Rostov</span>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div id="ID from JSON" className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-                                                    <div className="market_selection">
-                                                        <button id="ID from JSON" className="betbutton" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-                                                            <span className="betbutton_odds">1/2</span>
-                                                            <span className="icon"></span>
-                                                        </button>
-                                                    </div>
-                                                    <div className="market_selection">
-                                                        <button id="ID from JSON" className="betbutton" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-                                                            <span className="betbutton_odds">1/2</span>
-                                                            <span className="icon"></span>
-                                                        </button>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {Object.keys(this.state.events).map(key => <Event key={key} details={this.state.events[key]}/>)}
                                     </section>
                                 </div>
                             </div>
@@ -120,8 +126,12 @@ class CenterTabs extends React.Component {
                     </span>
                 </section>
             </div>
-          )
-      }
-  }
+        )
+    }
+}
 
-  export default CenterTabs;
+CenterTabs.propTypes = {
+  details: React.PropTypes.object
+};
+
+export default CenterTabs;

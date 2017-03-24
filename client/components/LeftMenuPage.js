@@ -2,7 +2,7 @@ import React from 'react';
 
 class LeftMenuPage extends React.Component {
     render() {
-          const { details, index} = this.props;
+          const { details} = this.props;
         return (
           <li id={details.id}>
             <a className="c-list_item" href={details.href}>
@@ -14,8 +14,7 @@ class LeftMenuPage extends React.Component {
 }
 
 LeftMenuPage.propTypes = {
-  details: React.PropTypes.object.isRequired,
-  index: React.PropTypes.string.isRequired
+  details: React.PropTypes.object.isRequired
 };
 
 export default LeftMenuPage;
