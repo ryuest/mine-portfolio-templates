@@ -3,63 +3,55 @@ import events from '../data/events';
 import competitions from '../data/competitions';
 
 const Selection = React.createClass({
-  render() {
-const { details } = this.props;
-      return (
-        <div className="market_selection">
-            <button id={details.id} className="betbutton" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-                <span className="betbutton_odds">{details.price}</span>
-                <span className="icon"></span>
-            </button>
-        </div>
-      )
-  }
+    render() {
+        const {selection} = this.props;
+        return (
+            <div className="market_selection">
+                <button id={selection.id} className="betbutton" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
+                    <span className="betbutton_odds">{selection.price}</span>
+                    <span className="icon"></span>
+                </button>
+            </div>
+        )
+    }
 });
 
 const Market = React.createClass({
-  render() {
-const { details } = this.props;
-      return (
-        <div id={details.id} className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-          <Selection details={details.selection1} />
-          <Selection details={details.selection2} />
-          <Selection details={details.selection3} />
-        </div>
-      )
-  }
+    render() {
+        const {market} = this.props;
+        return (
+            <div id={market.id} className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
+                {market.selections.map((selection, i) => <Selection {...this.props} key={i} selection={selection}/>)}
+            </div>
+        )
+    }
 });
-
-//   {Object.keys(this.state.events).map(key => <Selection key={key} details={this.state.events.market.selection[key]}/>)}
 
 class Event extends React.Component {
     render() {
-const { details} = this.props;
-    return (
-        <div className="event">
-            <div className="market">
-                <div className="market_content">
-                    <ul className="btmarket__content-marginrs">
-                        <li>
-                            <a title={details.name} className="market_name" href="/TODO">
-                                <div className="market_link-name">
-                                    <span>{details.nameTeam1}</span>
-                                    <span>{details.nameTeam2}</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            <Market details={details.market} />
-            </div>
-        </div>
-    )
-}
-}
-// <Market details={details} />
-//{...this.props} key={i} i={i} market={market} />)}
-// {Object.keys(this.state.events).map(key => <Market key={key} details={this.state.events.market[key]}/>)}
+        const {details} = this.props;
+        return (
+            <div className="event">
+                <div className="market">
+                    <div className="market_content">
+                        <ul className="btmarket__content-marginrs">
+                            <li>
+                                <a title={details.name} className="market_name" href="/TODO">
+                                    <div className="market_link-name">
+                                        <span>{details.nameTeam1}</span>
+                                        <span>{details.nameTeam2}</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
-//   {this.props.posts.map((post, i) => <Photo {...this.props} key={i} i={i} post={post} />)}
+                    {details.markets.map((market, i) => <Market {...this.props} key={i} market={market}/>)}
+                </div>
+            </div>
+        )
+    }
+}
 
 class CenterTabs extends React.Component {
     constructor() {
@@ -131,7 +123,7 @@ class CenterTabs extends React.Component {
 }
 
 CenterTabs.propTypes = {
-  details: React.PropTypes.object
+    details: React.PropTypes.object
 };
 
 export default CenterTabs;
