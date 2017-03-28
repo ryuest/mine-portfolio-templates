@@ -1,5 +1,6 @@
 import React from 'react';
 import events from '../data/events';
+import eventsInplay from '../data/eventsInplay';
 import competitions from '../data/competitions';
 
 const Selection = React.createClass({
@@ -21,7 +22,7 @@ const Market = React.createClass({
         const {market} = this.props;
         return (
             <div id={market.id} className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-                {market.selections.map((selection, i) => <Selection {...this.props} key={i} selection={selection}/>)}
+                {market.selections.map((selection, i) => <Selection key={i} selection={selection}/>)}
             </div>
         )
     }
@@ -46,11 +47,29 @@ class Event extends React.Component {
                         </ul>
                     </div>
 
-                    {details.markets.map((market, i) => <Market {...this.props} key={i} market={market}/>)}
+                    {details.markets.map((market, i) => <Market key={i} market={market}/>)}
                 </div>
             </div>
         )
     }
+}
+
+function Sport(props) {
+    return (
+        <div className="sport-container">
+            <header className="header-dropdown">
+                <h2 className="fl">{props.sport}</h2>
+                <div className="header_side">
+                    <aside className="header_toolbar">
+                        <a href="#" className="button-clear">
+                            <i className="icon-arrow-up-slim if-expanded"></i>
+                            <i className="icon-arrow-down-slim if-collapsed"></i>
+                        </a>
+                    </aside>
+                </div>
+            </header>
+        </div>
+    )
 }
 
 class CenterTabs extends React.Component {
@@ -59,7 +78,8 @@ class CenterTabs extends React.Component {
 
         this.state = {
             competitions: competitions,
-            events: events
+            events: events,
+            eventsInplay: eventsInplay
         }
     }
 
@@ -68,11 +88,18 @@ class CenterTabs extends React.Component {
             <div className="tabs_panels">
                 <section className="tabs_panels-panel" data-panel="panel-in-play">
                     <span>
-                        <div className="sectionheading">
+                        <section className="sectionheading">
                             <h2 className="h1 fl">In-Play</h2>
-                        </div>
-                        <section className="inplay">
-                            <div id="sport-events"></div>
+                        </section>
+                        <Sport sport="Football"/>
+                        <section id="match-highlights" className="betgroup">
+                            <div className="markets-group-container">
+                                <div className="events-group-container">
+                                    <section className="market_wrapper">
+                                        {Object.keys(this.state.eventsInplay).map(key => <Event key={key} details={this.state.eventsInplay[key]}/>)}
+                                    </section>
+                                </div>
+                            </div>
                         </section>
                     </span>
                 </section>
@@ -82,19 +109,7 @@ class CenterTabs extends React.Component {
                         <section className="sectionheading">
                             <h2 className="h1 cap">Highlights</h2>
                         </section>
-                        <div className="sport-container">
-                            <header className="header-dropdown">
-                                <h2 className="fl">Football</h2>
-                                <div className="header_side">
-                                    <aside className="header_toolbar">
-                                        <a href="#" className="button-clear">
-                                            <i className="icon-arrow-up-slim if-expanded"></i>
-                                            <i className="icon-arrow-down-slim if-collapsed"></i>
-                                        </a>
-                                    </aside>
-                                </div>
-                            </header>
-                        </div>
+                        <Sport sport="Football"/>
                         <section id="match-highlights" className="betgroup">
                             <div className="markets-group-container">
                                 <header className="header-dropdown">
