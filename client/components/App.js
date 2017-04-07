@@ -4,6 +4,9 @@ import CenterTabs from './CenterTabs';
 import RightPanel from './RightPanel';
 import navPages from '../data/navPages';
 import base from '../data/base';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/actionCreators';
 
 class App extends React.Component {
   constructor() {
@@ -34,11 +37,22 @@ class App extends React.Component {
                     <CenterTabs />
                 </div>
                 <div className="off-canvas_right">
-                    <RightPanel/>
+                    <RightPanel {...this.props}/>
                 </div>
             </div>
         )
     }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    posts: state.posts,
+    comments: state.comments
+  }
+}
+
+function mapDispachToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispachToProps)(App);
