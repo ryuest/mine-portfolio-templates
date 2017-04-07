@@ -5,7 +5,8 @@ module.exports = {
   devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client',
-    './client/index'
+	'babel-polyfill',
+    './client/index'	
   ],
   output: {
     path: path.join(__dirname, 'dist'),
