@@ -24,6 +24,7 @@ const composeEnhancers = compose(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : f => f, applyMiddleware(sagaMiddleware));
 
 const store = createStore(rootReducer, defaultState, composeEnhancers);
+
 sagaMiddleware.run(rootSaga);
 
 export const history = syncHistoryWithStore(browserHistory, store);

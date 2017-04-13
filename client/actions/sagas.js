@@ -1,25 +1,35 @@
-import { delay } from 'redux-saga'
-import { put, call, takeEvery } from 'redux-saga/effects'
+import { delay, takeEvery } from 'redux-saga';
+import { fork, call, put } from 'redux-saga/effects';
 
 
-export function* helloSaga() {
-  console.log('Hello Sagas OLD2!')
+function* helloSaga() {
+  console.log('Hello Sagas!')
 }
 
 // Our worker Saga: will perform the async increment task
-export function* incrementAsync() {
+function* incrementAsync() {
+  console.log("incrementAsync")
   yield call(delay, 1000)
   yield put({ type: 'INCREMENT' })
 }
 
-export function* watchIncrementAsync() {
-  yield takeEvery('INCREMENT_ASYNC', incrementAsync)
+function* watchIncrementAsync() {
+  console.log("watchIncrementAsync")
+  incrementAsync()
+  yield* takeEvery('INCREMENT_ASYNC', incrementAsync)
 }
 
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
   yield [
-    helloSaga(),
-    watchIncrementAsync()
+    fork(watchIncrementAsync)
   ]
 }
+
+//
+export function* increment(index) {
+    yield call(delay, 1000)
+    yield put({ type: 'INCREMENT_LIKES' })
+}
+
+//  helloSaga(),

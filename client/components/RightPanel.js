@@ -1,5 +1,7 @@
 import React from 'react';
 import Game from '../simpleTests/game';
+import Counter from './Counter';
+import store from '../store'
 
 class Likes extends React.Component {
     render() {
@@ -8,16 +10,22 @@ class Likes extends React.Component {
             <div className="sport-container">
                 <header className="header-dropdown">
                     <h2 className="fl">{post.likes}</h2>
-                      <button onClick={this.props.increment.bind(null, 0)} className="likes">&hearts; {post.likes}</button>
+                      <button onClick="" className="likes">&hearts; {post.likes}</button>
                 </header>
             </div>
         )
     }
 }
 
+//<button onClick={this.props.increment.bind(null, 0)} className="likes">&hearts; {post.likes}</button>
+
+//store.subscribe(Counter)
+
 const RightPanel = React.createClass({
     render() {
       const post = this.props.posts[0];
+      const counter = this.props.counter;
+      const action = type => store.dispatch({type})
         return (
             <div className="betslipwrapper">
                 <div className="betslip-container">
@@ -42,6 +50,11 @@ const RightPanel = React.createClass({
                     </div>
                     <div className="photo-grid">
                       <Likes i={0} post={post} {...this.props}/>
+                      <Counter
+                        value={counter}
+                        onIncrement={() => action('INCREMENT')}
+                        onDecrement={() => action('DECREMENT')}
+                        onIncrementAsync={() => action('INCREMENT_ASYNC')}/>
                     </div>
                 </div>
             </div>

@@ -6,11 +6,12 @@ import navPages from '../data/navPages';
 import base from '../data/base';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actionCreators from '../actions/actionCreators';
+//import * as actionCreators from '../actions/sagas'; //rootSaga
+import { rootSaga } from '../actions/sagas';
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
         this.state = {
             pages: navPages
@@ -44,15 +45,4 @@ class App extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-  return {
-    posts: state.posts,
-    comments: state.comments
-  }
-}
-
-function mapDispachToProps(dispatch) {
-  return bindActionCreators(actionCreators, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispachToProps)(App);
+export default App;

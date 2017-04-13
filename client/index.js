@@ -1,26 +1,24 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import './styles/style.styl';
 
+import routes from './routes';
 import App from './components/App';
-import Single from './components/Single';
-import PhotoGrid from './components/PhotoGrid';
 
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 
 const router = (
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={PhotoGrid}></IndexRoute>
-        <Route path="/view/:postId" component={Single}></Route>
-      </Route>
-    </Router>
+    <Router history={history} routes={routes} />
   </Provider>
 )
 
-render(router, document.getElementById('root'));
+//<IndexRoute component={Inplay}></IndexRoute>
+ReactDOM.render(
+  router,
+  document.getElementById('root')
+);
 
-store.subscribe(App)
+//store.subscribe(App)
