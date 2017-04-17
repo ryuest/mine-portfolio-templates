@@ -1,6 +1,6 @@
 
 
-/*
+
 // increment
 export function increment(index) {
   return{
@@ -9,6 +9,26 @@ export function increment(index) {
   }
 }
 
+export function log() {
+  return{
+    type: 'LOG'
+  }
+}
+
+/*
+export const action = type => store.dispatch({type})
+
+onIncrement={() => action('INCREMENT')}
+
+submit({ location }, dispatch) {
+    return new Promise((resolve, reject) => {
+      dispatch({
+        type: 'FETCH_WEATHER',
+        location,
+        resolve,
+        reject
+      });
+*/
 // add comments
 export function addComent(postId, author, comment) {
   return{
@@ -27,4 +47,3 @@ export function removeComment(postId, i) {
     postId
   }
 }
-*/

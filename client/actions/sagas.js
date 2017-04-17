@@ -19,17 +19,27 @@ function* watchIncrementAsync() {
   yield* takeEvery('INCREMENT_ASYNC', incrementAsync)
 }
 
+function* zz() {
+  console.log("zz log")
+  yield call(delay, 1000)
+  yield put({ type: 'DECREMENT' })
+}
+
+function* log() {
+  console.log("watchIncrementAsync LOG")
+  zz()
+  yield* takeEvery('LOG', zz)
+}
+
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
   yield [
-    fork(watchIncrementAsync)
+    watchIncrementAsync(),
+    log()
   ]
 }
 
 //
-export function* increment(index) {
-    yield call(delay, 1000)
-    yield put({ type: 'INCREMENT_LIKES' })
-}
+
 
 //  helloSaga(),

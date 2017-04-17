@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actionCreators from '../actions/sagas'; //rootSaga
+import * as actionCreators from '../actions/actionCreators'; //rootSaga
 //import actionCreators from '../actions/sagas';
 import Main from './Main';
 

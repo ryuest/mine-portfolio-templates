@@ -1,10 +1,12 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { syncHistoryWithStore} from 'react-router-redux';
 import { browserHistory } from 'react-router';
+import { composeWithDevTools} from 'redux-devtools-extension';
 
-// import the root reducer
+// import all reducers
 import rootReducer from './reducers/index';
 
+// initial data
 import comments from './data/comments';
 import posts from './data/posts';
 
@@ -20,10 +22,7 @@ const defaultState = {
   comments
 };
 
-const composeEnhancers = compose(
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : f => f, applyMiddleware(sagaMiddleware));
-
-const store = createStore(rootReducer, defaultState, composeEnhancers);
+const store = createStore(rootReducer, defaultState, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
 sagaMiddleware.run(rootSaga);
 

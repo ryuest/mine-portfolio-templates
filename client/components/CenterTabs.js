@@ -1,6 +1,6 @@
 import React from 'react';
 import events from '../data/events';
-import eventsInplay from '../data/eventsInplay';
+import eventsInplay from '../data/events';
 import competitions from '../data/competitions';
 
 const Selection = React.createClass({
