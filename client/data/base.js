@@ -1,9 +1,12 @@
 import Rebase from 're-base';
 
 const base = Rebase.createClass({
-  apiKey: "AIzaSyCdgXxyNqCZEeY36Ss9i4jFMSUh7FdGi6M",
-  authDomain: "catch-of-the-day-wes-bos.firebaseapp.com",
-  databaseURL: "https://catch-of-the-day-wes-bos.firebaseio.com",
+  apiKey: "AIzaSyBS87dEg0heswfD72YayVecTGVJlgLIyy0",
+     authDomain: "mine-portfolio.firebaseapp.com",
+     databaseURL: "https://mine-portfolio.firebaseio.com",
+     projectId: "mine-portfolio",
+     storageBucket: "mine-portfolio.appspot.com",
+     messagingSenderId: "898890413816"
 });
 
 export default base;

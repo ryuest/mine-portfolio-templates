@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../actions/actionCreators'; //rootSaga
 //import actionCreators from '../actions/sagas';
 import Main from './Main';
+import { selectors } from '../reducers/speech';
 
-
+/*
 function mapStateToProps(state) {
   return {
     posts: state.posts,
@@ -14,11 +15,19 @@ function mapStateToProps(state) {
   }
 }
 
-
 function mapDispachToProps(dispatch) {
   return bindActionCreators(actionCreators, dispatch);
 }
+*/
 
-const AppStateToProps = connect(mapStateToProps, mapDispachToProps)(Main);
+const mapStateToProps = (state) => ({
+    speechKeys: selectors.getSpeechKeys(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    fetchSpeech: (key) => dispatch(actions.fetchSpeech(key)),
+});
+
+const AppStateToProps = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 export default AppStateToProps;

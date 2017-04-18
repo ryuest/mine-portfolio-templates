@@ -1,6 +1,3 @@
-
-
-
 // increment
 export function increment(index) {
   return{
@@ -15,20 +12,15 @@ export function log() {
   }
 }
 
-/*
-export const action = type => store.dispatch({type})
+const fetchSpeech = (speechKey) => ({
+    type: 'FETCH_SPEECH',
+    speechKey,
+});
 
-onIncrement={() => action('INCREMENT')}
+const fetchSpeechKeys = () => ({
+    type: 'FETCH_SPEECH_KEYS',
+});
 
-submit({ location }, dispatch) {
-    return new Promise((resolve, reject) => {
-      dispatch({
-        type: 'FETCH_WEATHER',
-        location,
-        resolve,
-        reject
-      });
-*/
 // add comments
 export function addComent(postId, author, comment) {
   return{
@@ -47,3 +39,12 @@ export function removeComment(postId, i) {
     postId
   }
 }
+
+export default {
+    increment,
+    log,
+    fetchSpeech,
+    fetchSpeechKeys,
+    addComent,
+    removeComment,
+};

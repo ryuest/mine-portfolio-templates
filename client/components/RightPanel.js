@@ -17,7 +17,7 @@ class Likes extends React.Component {
         )
     }
 }
-
+//<button onClick={this.props.logPost} className="likes">&hearts; {post.likes}</button>
 //<button onClick={this.props.increment.bind(null, 0)} className="likes">&hearts; {post.likes}</button>
 
 //store.subscribe(Counter)
