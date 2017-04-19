@@ -7,8 +7,9 @@ export default class Main extends Component {
     return (
       <div>
         {React.cloneElement(this.props.children, this.props)}
-        <SpeechLoaders fetchSpeech={fetchSpeech} speechKeys={speechKeys}/>
+
       </div>
     );
   }
 }
+//<SpeechLoaders fetchSpeech={fetchSpeech} speechKeys={speechKeys}/>

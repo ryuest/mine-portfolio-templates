@@ -12,15 +12,6 @@ export function log() {
   }
 }
 
-const fetchSpeech = (speechKey) => ({
-    type: 'FETCH_SPEECH',
-    speechKey,
-});
-
-const fetchSpeechKeys = () => ({
-    type: 'FETCH_SPEECH_KEYS',
-});
-
 // add comments
 export function addComent(postId, author, comment) {
   return{
@@ -40,11 +31,32 @@ export function removeComment(postId, i) {
   }
 }
 
+const fetchPosts = () => ({
+    type: 'FETCH_POSTS',
+});
+
+const fetchedPostsKeys = (posts) => ({
+    type: 'FETCHED_POSTS',
+    data: { posts },
+});
+
+const fetchSpeechKeys = () => ({
+    type: 'FETCH_SPEECH_KEYS',
+});
+
+const fetchedSpeechKeys = (speechKeys) => ({
+    type: 'FETCHED_SPEECH_KEYS',
+    data: { speechKeys },
+});
+
+
+
+
+
+
 export default {
-    increment,
-    log,
-    fetchSpeech,
+    fetchPosts,
+    fetchedPostsKeys,
     fetchSpeechKeys,
-    addComent,
-    removeComment,
+    fetchedSpeechKeys,
 };

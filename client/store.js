@@ -23,11 +23,12 @@ const defaultState = {
   comments
 };
 
-const store = createStore(rootReducer, defaultState, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
 sagaMiddleware.run(rootSaga);
 
 store.dispatch(actions.fetchSpeechKeys());
+store.dispatch(actions.fetchPosts());
 
 export const history = syncHistoryWithStore(browserHistory, store);
 

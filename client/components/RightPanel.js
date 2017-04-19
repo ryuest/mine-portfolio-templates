@@ -2,21 +2,16 @@ import React from 'react';
 import Game from '../simpleTests/game';
 import Counter from './Counter';
 import store from '../store'
+import SpeechLoaders from './SpeechLoaders';
 
-class Likes extends React.Component {
-    render() {
-      const { post} = this.props;
-        return (
+export const Likes = ({ post }) => (
             <div className="sport-container">
                 <header className="header-dropdown">
-                    <h2 className="fl">{post.likes}</h2>
-                      <button onClick={this.props.increment.bind(null, 0)} className="likes">&hearts; {post.likes}</button>
-                      <button onClick={this.props.log} className="likes">&hearts; {post.likes}</button>
+                    <h2 className="fl"></h2>
+
                 </header>
             </div>
-        )
-    }
-}
+);
 //<button onClick={this.props.logPost} className="likes">&hearts; {post.likes}</button>
 //<button onClick={this.props.increment.bind(null, 0)} className="likes">&hearts; {post.likes}</button>
 
@@ -25,9 +20,10 @@ class Likes extends React.Component {
 const RightPanel = React.createClass({
 
     render() {
-      const post = this.props.posts[0];
-      const counter = this.props.counter;
-      const action = type => store.dispatch({type})
+      //  const post = this.props.firebaseKeys.posts[0];
+    //    const counter = this.props.firebaseKeys.counter;
+        const action = type => store.dispatch({type})
+
         return (
             <div className="betslipwrapper">
                 <div className="betslip-container">
@@ -51,17 +47,24 @@ const RightPanel = React.createClass({
                         <Game/>
                     </div>
                     <div className="photo-grid">
-                      <Likes i={0} post={post} {...this.props} />
-                      <Counter
-                        value={counter}
-                        onIncrement={() => action('INCREMENT')}
-                        onDecrement={() => action('DECREMENT')}
-                        onIncrementAsync={() => action('INCREMENT_ASYNC')}/>
+
+
                     </div>
+
                 </div>
             </div>
         )
     }
 });
+/*
+<Counter value={counter}
+  onIncrement={() => action('INCREMENT')}
+  onDecrement={() => action('DECREMENT')}
+  onIncrementAsync={() => action('INCREMENT_ASYNC')}/>
+  <Likes i={0} post={post}/>
 
+<div className="speechLoaders">
+    <SpeechLoaders fetchSpeech={this.props.fetchSpeech} speechKeys={this.props.fetchSpeechKeys}/>
+</div>
+*/
 export default RightPanel;

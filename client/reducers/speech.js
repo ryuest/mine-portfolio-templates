@@ -1,13 +1,13 @@
 export default function (state = { }, action) {
     switch (action.type) {
-        case 'FETCH_SPEECH':
-            return {
-                ...state,
-                currentSpeech: action.speechKey,
-                allPhrases: [],
-                displayedPhrases: [],
-                loading: true,
-            };
+        case 'FETCHED_SPEECH_KEYS':
+
+              return {
+                  ...state,
+                  ...action.data.speechKeys
+
+              };
+
         default:
             return state;
     }
@@ -16,3 +16,10 @@ export default function (state = { }, action) {
 export const selectors = {
     getSpeechKeys: (state) => state.speechKeys,
 };
+
+
+
+/*
+
+
+*/

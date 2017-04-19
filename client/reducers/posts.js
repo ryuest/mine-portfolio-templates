@@ -3,6 +3,24 @@
 // 1. the action (info about what happened)
 // 2. copy of current state
 
+export default function (state = { }, action) {
+    switch (action.type) {
+            case 'FETCHED_POSTS':
+                return {
+                    ...state,
+                    ...action.data,
+
+                };
+        default:
+            return state;
+    }
+}
+
+export const selectorsPost = {
+    getPosts: (state) => state.posts,
+};
+
+/*
 function posts(state = [], action) {
     switch (action.type) {
         case 'INCREMENT_LIKES' :
@@ -19,3 +37,4 @@ function posts(state = [], action) {
 }
 
 export default posts;
+*/
