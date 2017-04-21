@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import {SpeechLoaders} from './SpeechLoaders';
+
 
 export default class Main extends Component {
   render() {

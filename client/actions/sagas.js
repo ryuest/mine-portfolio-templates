@@ -45,20 +45,9 @@ function* watchIncrementAsync() {
 function* zz() {
   console.log("zz log")
   yield call(delay, 1000)
-  yield put({ type: 'DECREMENT' })
+  yield put({ type: 'INCREMENT_LIKES' })
 }
 
-function* zzPost(index) {
-  console.log("zzPost log")
-  yield call(delay, 1000)
-  yield put({ type: 'INCREMENT_LIKES', index })
-}
-
-function* logPost() {
-  console.log("watchIncrementAsync zzPost")
-  zzPost()
-  yield* takeEvery('INCREMENT_LIKES', zzPost)
-}
 
 function* log() {
   console.log("watchIncrementAsync LOG")
@@ -91,7 +80,7 @@ export default function* rootSaga() {
   yield [
     takeLatest('FETCH_SPEECH_KEYS', doFetchSpeechKeys),
     takeLatest('FETCH_POSTS', doFetchPosts),
-    fork(watchIncrementAsync),
+    log()
   ]
 }
 

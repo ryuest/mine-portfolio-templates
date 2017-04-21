@@ -9,7 +9,6 @@ import rootReducer from './reducers/index';
 
 // initial data
 import comments from './data/comments';
-import posts from './data/posts';
 
 //saga
 import createSagaMiddleware from 'redux-saga';
@@ -19,7 +18,6 @@ const sagaMiddleware = createSagaMiddleware();
 
 // create an object for the default data
 const defaultState = {
-  posts,
   comments
 };
 

@@ -1,10 +1,15 @@
 // increment
+/*
 export function increment(index) {
   return{
     type: 'INCREMENT_LIKES',
     index
   }
 }
+*/
+const increment = () => ({
+    type: 'INCREMENT_LIKES',
+});
 
 export function log() {
   return{

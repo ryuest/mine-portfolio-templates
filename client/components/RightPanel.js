@@ -2,16 +2,22 @@ import React from 'react';
 import Game from '../simpleTests/game';
 import Counter from './Counter';
 import store from '../store'
-import SpeechLoaders from './SpeechLoaders';
 
-export const Likes = ({ post }) => (
+class Likes extends React.Component {
+
+    render() {
+      const a = [1, 2];
+
+        return (
             <div className="sport-container">
                 <header className="header-dropdown">
                     <h2 className="fl"></h2>
-
+                       <button onClick={this.props.log} className="likes">&hearts; {this.props.posts[a.length].likes}</button>
                 </header>
             </div>
-);
+          )
+      }
+  }
 //<button onClick={this.props.logPost} className="likes">&hearts; {post.likes}</button>
 //<button onClick={this.props.increment.bind(null, 0)} className="likes">&hearts; {post.likes}</button>
 
@@ -20,9 +26,9 @@ export const Likes = ({ post }) => (
 const RightPanel = React.createClass({
 
     render() {
-      //  const post = this.props.firebaseKeys.posts[0];
+
     //    const counter = this.props.firebaseKeys.counter;
-        const action = type => store.dispatch({type})
+    //    const action = type => store.dispatch({type})
 
         return (
             <div className="betslipwrapper">
@@ -47,7 +53,7 @@ const RightPanel = React.createClass({
                         <Game/>
                     </div>
                     <div className="photo-grid">
-
+                      <Likes i={4} {...this.props} />
 
                     </div>
 
