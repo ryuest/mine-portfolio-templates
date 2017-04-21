@@ -6,18 +6,19 @@ import store from '../store'
 class Likes extends React.Component {
 
     render() {
-      const a = [1, 2];
 
         return (
             <div className="sport-container">
                 <header className="header-dropdown">
-                    <h2 className="fl"></h2>
-                       <button onClick={this.props.log} className="likes">&hearts; {this.props.posts[a.length].likes}</button>
+                    <h2 className="fl">{this.props.nol}</h2>
+                      <button onClick={() => this.props.increment(this.props.posts[0].likes)} className="likes">&hearts; {this.props.posts[0].likes}</button>
+                      <button onClick={() => this.props.updatePlayerScore(0, 1)} className="likes">&hearts; {this.props.players} </button>
                 </header>
             </div>
           )
       }
   }
+  //<button onClick={this.props.log} className="likes">&hearts; {this.props.posts[this.props.nol].likes}</button>
 //<button onClick={this.props.logPost} className="likes">&hearts; {post.likes}</button>
 //<button onClick={this.props.increment.bind(null, 0)} className="likes">&hearts; {post.likes}</button>
 

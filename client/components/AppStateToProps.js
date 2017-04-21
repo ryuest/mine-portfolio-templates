@@ -5,8 +5,10 @@ import * as actionCreators from '../actions/actionCreators';
 import actions from '../actions/actionCreators'; //rootSaga
 //import actionCreators from '../actions/sagas';
 import Main from './Main';
+import App from './App';
 import { selectors } from '../reducers/speech';
 import { selectorsPost } from '../reducers/posts';
+import {selectorsPlayers} from '../reducers/comments';
 
 /*
 function mapStateToProps(state) {
@@ -26,7 +28,8 @@ function mapDispachToProps(dispatch) {
 
 const mapStateToProps = (state) => ({
     speechKeys: selectors.getSpeechKeys(state.speechKeys),
-    posts: selectorsPost.getPosts(state.posts)
+    posts: selectorsPost.getPosts(state.posts),
+    nol: 0,
 
 });
 /*

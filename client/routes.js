@@ -5,10 +5,11 @@ import App from './components/App';
 import Main from './components/Main';
 import InPlay from './components/InPlay';
 import AppStateToProps from './components/AppStateToProps';
+import Scoreboard from './components/Scoreboard';
 
 export default (
   <Route path="/" component={AppStateToProps}>
     <IndexRoute component={App} />
-    <Route path="/InPlay" component={InPlay} />
+    <Route path="/InPlay" component={Scoreboard} />
   </Route>
 );

@@ -1,16 +1,28 @@
+import * as PlayerActionTypes from '../actiontypes/player';
 // increment
-/*
-export function increment(index) {
+
+export function increment(likes) {
   return{
-    type: 'INCREMENT_LIKES',
-    index
+    type: 'ADD_COMMENTZZ',
+    likes
   }
 }
-*/
-const increment = () => ({
-    type: 'INCREMENT_LIKES',
-});
 
+export const updatePlayerScore2 = (index, score)  => {
+   return {
+     type: "UPDATE_PLAYER_SCORE2",
+     index,
+     score
+  };
+};
+/*
+const increment = (index, likes, name) => ({
+    type: 'ADD_COMMENTZZ',
+    index,
+    likes,
+    name
+});
+*/
 export function log() {
   return{
     type: 'LOG'
@@ -54,12 +66,40 @@ const fetchedSpeechKeys = (speechKeys) => ({
     data: { speechKeys },
 });
 
+export const addPlayer = name => {
+  return {
+    type: PlayerActionTypes.ADD_PLAYER,
+    name
+  };
+};
 
+export const removePlayer = index => {
+  return {
+    type: PlayerActionTypes.REMOVE_PLAYER,
+    index
+  };
+};
+
+export const updatePlayerScore = (index, score)  => {
+   return {
+     type: PlayerActionTypes.UPDATE_PLAYER_SCORE,
+     index,
+     score
+  };
+};
+
+export const selectPlayer = index => {
+  return {
+    type: PlayerActionTypes.SELECT_PLAYER,
+    index
+  };
+};
 
 
 
 
 export default {
+    increment,
     fetchPosts,
     fetchedPostsKeys,
     fetchSpeechKeys,

@@ -45,7 +45,7 @@ function* watchIncrementAsync() {
 function* zz() {
   console.log("zz log")
   yield call(delay, 1000)
-  yield put({ type: 'INCREMENT_LIKES' })
+  yield put(actions.increment(0, 22, "jura"));
 }
 
 
@@ -71,8 +71,6 @@ export function * doFetchSpeechKeys() {
     // when done, send data to reducer
     yield put(actions.fetchedSpeechKeys(data));
 }
-
-
 
 
 // single entry point to start all Sagas at once

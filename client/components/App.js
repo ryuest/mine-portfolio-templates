@@ -11,14 +11,21 @@ class App extends React.Component {
         super();
         this.state = {
             pages: navPages
+
+
         }
+
     }
 
     componentWillMount() {
-        // this runs right before the <App> is rendered
+
     }
 
     render() {
+      const { players } = this.props;
+
+
+
         return (
             <div className="off-canvas_inner-wrapper">
                 <aside className="off-canvas_left">
@@ -33,7 +40,7 @@ class App extends React.Component {
                 </aside>
                 <div className="off-canvas_main">
                     <CenterTabs/>
-
+                    
                 </div>
                 <div className="off-canvas_right">
                     <RightPanel {...this.props}/>
