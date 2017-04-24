@@ -8,6 +8,12 @@ export function increment(likes) {
   }
 }
 
+export function incrementCounter() {
+  return{
+    type: 'INCREMENT'
+  }
+}
+
 export const updatePlayerScore2 = (index, score)  => {
    return {
      type: "UPDATE_PLAYER_SCORE2",

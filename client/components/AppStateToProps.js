@@ -30,6 +30,8 @@ const mapStateToProps = (state) => ({
     speechKeys: selectors.getSpeechKeys(state.speechKeys),
     posts: selectorsPost.getPosts(state.posts),
     nol: 0,
+    counter:state.counter,
+    players: state.players.players
 
 });
 /*

@@ -11,26 +11,37 @@ class Likes extends React.Component {
             <div className="sport-container">
                 <header className="header-dropdown">
                     <h2 className="fl">{this.props.nol}</h2>
-                      <button onClick={() => this.props.increment(this.props.posts[0].likes)} className="likes">&hearts; {this.props.posts[0].likes}</button>
-                      <button onClick={() => this.props.updatePlayerScore(0, 1)} className="likes">&hearts; {this.props.players} </button>
+                      <button onClick={() => this.props.increment(this.props.posts[0].likes)}
+                        className="likes">&hearts; {this.props.posts[0].likes}</button>
+
                 </header>
             </div>
+
           )
       }
   }
+  //                      <button onClick={() => this.props.updatePlayerScore(0, 1)}
+  //                        className="likes">&hearts; {this.props.players} </button>
   //<button onClick={this.props.log} className="likes">&hearts; {this.props.posts[this.props.nol].likes}</button>
 //<button onClick={this.props.logPost} className="likes">&hearts; {post.likes}</button>
 //<button onClick={this.props.increment.bind(null, 0)} className="likes">&hearts; {post.likes}</button>
 
 //store.subscribe(Counter)
 
-const RightPanel = React.createClass({
+  class RightPanel extends React.Component {
+      constructor() {
+          super();
 
+      this.state = {
+
+          counter: 2
+      }
+  }
     render() {
 
     //    const counter = this.props.firebaseKeys.counter;
     //    const action = type => store.dispatch({type})
-
+    //store.dispatch(this.props.players)
         return (
             <div className="betslipwrapper">
                 <div className="betslip-container">
@@ -57,12 +68,15 @@ const RightPanel = React.createClass({
                       <Likes i={4} {...this.props} />
 
                     </div>
-
+                    <div>
+                  <button onClick={() => this.props.increment(this.props.posts[0].likes)}
+                      className="counter">Increment={this.state.counter} </button>
+                      </div>
                 </div>
             </div>
         )
     }
-});
+}
 /*
 <Counter value={counter}
   onIncrement={() => action('INCREMENT')}

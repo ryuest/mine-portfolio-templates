@@ -45,7 +45,8 @@ function* watchIncrementAsync() {
 function* zz() {
   console.log("zz log")
   yield call(delay, 1000)
-  yield put(actions.increment(0, 22, "jura"));
+//  yield put(actions.increment(0, 22, "jura"));
+  yield put(actions.incrementCounter());
 }
 
 

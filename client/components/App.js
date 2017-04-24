@@ -12,7 +12,6 @@ class App extends React.Component {
         this.state = {
             pages: navPages
 
-
         }
 
     }
@@ -22,8 +21,7 @@ class App extends React.Component {
     }
 
     render() {
-      const { players } = this.props;
-
+    
 
 
         return (
@@ -40,7 +38,7 @@ class App extends React.Component {
                 </aside>
                 <div className="off-canvas_main">
                     <CenterTabs/>
-                    
+
                 </div>
                 <div className="off-canvas_right">
                     <RightPanel {...this.props}/>

@@ -1,5 +1,3 @@
-
-
 export default function(state = [], action) {
     switch (action.type) {
         case 'ADD_COMMENT':
@@ -9,34 +7,29 @@ export default function(state = [], action) {
                     text: action.comment
                 }
             ];
-            case 'ADD_COMMENTZZ' :
+        case 'ADD_COMMENTZZ': {
+            const updatePlayerList = state.todos.map((todo, index) => {
+              
+                  console.log(todo.text)
+                    return {
+                        ...todo,
+                        text: "updatePlayerList",
+                        user: "updatePlayerList"
+                      };
 
-            return {
-                ...state,
-                    counter: action.likes,
+                 });
+           			return {
+           				...state,
+           				todos: updatePlayerList
+           			}
+           		}
 
-                }
-                case "UPDATE_PLAYER_SCORE": {
-                			const updatePlayerList = state.players.map((player, index) => {
-                        if(index === action.index){
-                          return {
-                            ...player,
-                             zz: player.score + action.score,
-                           };
-                        }
-                        return player;
-                      });
-                			return {
-                				...state,
-                				zz: updatePlayerList
-                			};
-                		}
 
         case 'ADD_COMMENTZZ_old':
             const addPlayerList = [
                 ...state.players, {
                     zz: action.name,
-                    zz2: 0,
+                    zz2: 0
                 }
             ];
             return {
@@ -66,3 +59,15 @@ function comments(state = [], action) {
     }
     return state;
 }
+
+/*
+    return {
+        todos: [
+            ...state.todos, {
+                text: "zz",
+                user: "ww  "
+            }
+        ]
+
+    }
+    */

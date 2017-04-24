@@ -20,8 +20,7 @@ const initialState = {
 		created: '11/11/2016',
 		updated: '11/12/2016'
 	}
-	],
-	selectedPlayerIndex: -1
+	]
 }
 
 export default function Player(state=initialState, action) {
