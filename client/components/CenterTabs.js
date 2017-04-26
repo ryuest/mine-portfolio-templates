@@ -3,19 +3,45 @@ import events from '../data/events';
 import eventsInplay from '../data/events';
 import competitions from '../data/competitions';
 
-const Selection = React.createClass({
+class Selection extends React.Component {
+    constructor() {
+        super();
+        this.getComponent = this.getComponent.bind(this);
+        this.state = {
+          isSelected: false
+        }
+    }
+
+    handleClick() {
+        console.log("handleClick3")
+    }
+
+
+    getComponent (event) {
+      var isSelected = this.state.isSelected;
+       if (!isSelected) {
+      console.log('li item clicked! to TRUE');
+      event.currentTarget.style.backgroundColor = '#4DFF33';
+      this.setState({ isSelected: true });
+    } else {
+      console.log('li item clicked! to FALSE');
+      event.currentTarget.style.backgroundColor = '#dadfe5';
+      this.setState({ isSelected: false });
+    }
+    }
+
     render() {
         const {selection} = this.props;
         return (
             <div className="market_selection">
-                <button id={selection.id} className="betbutton" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
+                <button onClick={this.getComponent} id={selection.id} className="betbutton" data-displayed="data-displayed2 from JSON" data-status="data-status from JSON">
                     <span className="betbutton_odds">{selection.price}</span>
                     <span className="icon"></span>
                 </button>
             </div>
         )
     }
-});
+}
 
 const Market = React.createClass({
     render() {
@@ -75,7 +101,6 @@ function Sport(props) {
 class CenterTabs extends React.Component {
     constructor() {
         super();
-
         this.state = {
             competitions: competitions,
             events: events,
@@ -86,52 +111,26 @@ class CenterTabs extends React.Component {
     render() {
         return (
             <div className="tabs_panels">
-                <section className="tabs_panels-panel" data-panel="panel-in-play">
-                    <span>
-                        <section className="sectionheading">
-                            <h2 className="h1 fl">In-Play</h2>
-                        </section>
-                        <Sport sport="Football"/>
-                        <section id="match-highlights" className="betgroup">
-                            <div className="markets-group-container">
-                                <div className="events-group-container">
-                                    <section className="market_wrapper">
-                                        {Object.keys(this.state.eventsInplay).map(key => <Event key={key} details={this.state.eventsInplay[key]}/>)}
-                                    </section>
-                                </div>
-                            </div>
-                        </section>
-                    </span>
-                </section>
-
-                <section className="tabs_panels-panel" data-panel="panel-highlights">
-                    <span>
-                        <section className="sectionheading">
-                            <h2 className="h1 cap">Highlights</h2>
-                        </section>
-                        <Sport sport="Football"/>
-                        <section id="match-highlights" className="betgroup">
-                            <div className="markets-group-container">
-                                <header className="header-dropdown">
-                                    <h2 className="fl">90 Minutes</h2>
-                                    <div className="header_side">
-                                        <aside className="header_toolbar">
-                                            <a href="#" className="button-clear">
-                                                <i className="icon-arrow-up-slim if-expanded"></i>
-                                                <i className="icon-arrow-down-slim if-collapsed"></i>
-                                            </a>
-                                        </aside>
+                <div>
+                    <section id="tabs_panels-panel-in-play" data-panel="panel-in-play">
+                        <span>
+                            <section id="sectionheading-in-play">
+                                <h2 className="h1 fl">In-Play</h2>
+                                <Sport sport="Football"/>
+                                <section id="match-in-play" className="betgroup">
+                                    <div className="markets-group-container">
+                                        <div className="events-group-container">
+                                            <section id="market_wrapper-in-play">
+                                                {Object.keys(this.state.eventsInplay).map(key => <Event key={key} details={this.state.eventsInplay[key]}/>)}
+                                            </section>
+                                        </div>
                                     </div>
-                                </header>
-                                <div className="events-group-container">
-                                    <section className="market_wrapper">
-                                        {Object.keys(this.state.events).map(key => <Event key={key} details={this.state.events[key]}/>)}
-                                    </section>
-                                </div>
-                            </div>
-                        </section>
-                    </span>
-                </section>
+                                </section>
+                            </section>
+                        </span>
+                    </section>
+                </div>
+
             </div>
         )
     }

@@ -3,7 +3,7 @@ import * as PlayerActionTypes from '../actiontypes/player';
 
 export function increment(likes) {
   return{
-    type: 'ADD_COMMENTZZ',
+    type: 'INCREMENT_LIKES',
     likes
   }
 }

@@ -11,17 +11,22 @@ class App extends React.Component {
         super();
         this.state = {
             pages: navPages
-
         }
 
     }
+
+      handleClick() {
+          this.setState({
+              isSelected: true
+          })
+      }
 
     componentWillMount() {
 
     }
 
     render() {
-    
+
 
 
         return (
@@ -30,8 +35,7 @@ class App extends React.Component {
                     <div className="left-nav">
                         <nav>
                             <ul className="c-list-icon">
-                                {Object.keys(this.state.pages).map(key => <LeftMenuPage key={key} details={this.state.pages[key]}/>)
-}
+                                {Object.keys(this.state.pages).map(key => <LeftMenuPage key={key} details={this.state.pages[key]}/>)}
                             </ul>
                         </nav>
                     </div>
