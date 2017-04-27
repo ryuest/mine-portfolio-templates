@@ -6,35 +6,24 @@ import competitions from '../data/competitions';
 class Selection extends React.Component {
     constructor() {
         super();
-        this.getComponent = this.getComponent.bind(this);
-        this.state = {
-          isSelected: false
-        }
     }
 
-    handleClick() {
-        console.log("handleClick3")
-    }
-
-
-    getComponent (event) {
-      var isSelected = this.state.isSelected;
-       if (!isSelected) {
-      console.log('li item clicked! to TRUE');
-      event.currentTarget.style.backgroundColor = '#4DFF33';
-      this.setState({ isSelected: true });
-    } else {
-      console.log('li item clicked! to FALSE');
-      event.currentTarget.style.backgroundColor = '#dadfe5';
-      this.setState({ isSelected: false });
-    }
-    }
+    addToSelection(event, selectionID) {
+    event.preventDefault();
+    console.log('GOnna make some selection! 🎣');
+  //  const selectionID = {
+  //    id: this.id,
+  //      }
+    this.props.getComponent(event, selectionID);
+  //  this.fishForm.reset();
+  }
 
     render() {
         const {selection} = this.props;
+        const isAvailable = selection.isSelected === 'available';
         return (
             <div className="market_selection">
-                <button onClick={this.getComponent} id={selection.id} className="betbutton" data-displayed="data-displayed2 from JSON" data-status="data-status from JSON">
+                <button onClick={(e) => this.addToSelection(e, selection.id)} id={selection.id} className="betbutton" data-displayed="data-displayed2 from JSON" data-status="data-status from JSON">
                     <span className="betbutton_odds">{selection.price}</span>
                     <span className="icon"></span>
                 </button>
@@ -42,13 +31,15 @@ class Selection extends React.Component {
         )
     }
 }
+//  onClick={this.props.getComponent}
+//  <button onClick={() => this.props.addToOrder(index)} disabled={!isAvailable}>{buttonText}</button>
 
 const Market = React.createClass({
     render() {
         const {market} = this.props;
         return (
             <div id={market.id} className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-                {market.selections.map((selection, i) => <Selection key={i} selection={selection}/>)}
+                {market.selections.map((selection, i) => <Selection key={i} selection={selection} getComponent={this.props.getComponent}/>)}
             </div>
         )
     }
@@ -72,8 +63,7 @@ class Event extends React.Component {
                             </li>
                         </ul>
                     </div>
-
-                    {details.markets.map((market, i) => <Market key={i} market={market}/>)}
+                    {details.markets.map((market, i) => <Market key={i} market={market} getComponent={this.props.getComponent}/>)}
                 </div>
             </div>
         )
@@ -121,7 +111,10 @@ class CenterTabs extends React.Component {
                                     <div className="markets-group-container">
                                         <div className="events-group-container">
                                             <section id="market_wrapper-in-play">
-                                                {Object.keys(this.state.eventsInplay).map(key => <Event key={key} details={this.state.eventsInplay[key]}/>)}
+                                                {Object.keys(this.state.eventsInplay).map(key => <Event
+                                                  key={key} details={this.state.eventsInplay[key]}
+                                                  getComponent={this.props.getComponent}
+                                                />)}
                                             </section>
                                         </div>
                                     </div>

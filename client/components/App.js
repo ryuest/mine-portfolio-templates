@@ -9,17 +9,52 @@ import competitions from '../data/competitions';
 class App extends React.Component {
     constructor() {
         super();
+        this.getComponent = this.getComponent.bind(this);
+        this.addToSelectionBetSlip = this.addToSelectionBetSlip.bind(this);
+
         this.state = {
-            pages: navPages
+            pages: navPages,
+            isSelected: false,
+            selections: {}
         }
 
     }
 
-      handleClick() {
-          this.setState({
-              isSelected: true
-          })
-      }
+    addToSelectionBetSlip(key) {
+    // take a copy of our state
+    const selections = {...this.state.selections};
+    // update or add the new number of fish ordered
+    selections[key] = selections[key] + 1 || 1;
+    // update our state
+    this.setState({ selections });
+    }
+
+    getComponent(event, selectionID) {
+      // take a copy of our state
+      const selections = {...this.state.selections};
+      // update or add the new number of fish ordered
+      selections[selectionID] = selections[selectionID] + 1 || 1;
+      // update our state
+    //  console.log("selections[index] :"+selections[index])
+      console.log("selections :"+selections)
+      console.log("selections[selectionID] :"+selections[selectionID])
+        var isSelected = this.state.isSelected;
+        if (!isSelected && selections[selectionID] != null) {
+            console.log('li item clicked! to TRUE');
+            event.currentTarget.style.backgroundColor = '#4DFF33';
+            this.setState({isSelected: true});
+            this.setState({ selections });
+
+        } else {
+            console.log('li item clicked! to FALSE');
+            event.currentTarget.style.backgroundColor = '#dadfe5';
+            delete selections[selectionID];
+            this.setState({ selections });
+            if (selections[selectionID] == null) {
+            this.setState({isSelected: false});
+            }
+        }
+    }
 
     componentWillMount() {
 
@@ -41,7 +76,9 @@ class App extends React.Component {
                     </div>
                 </aside>
                 <div className="off-canvas_main">
-                    <CenterTabs/>
+                    <CenterTabs
+                    getComponent={this.getComponent}
+                    addToOrder={this.addToOrder} />
 
                 </div>
                 <div className="off-canvas_right">

@@ -13,15 +13,18 @@ const events = {
                         {
                             name: 'QPR U23',
                             id: 'OB_OU1502959977',
-                            price: '4/7'
+                            price: '4/7',
+                            isSelected: false
                         }, {
                             name: 'draw',
                             id: 'OB_OU1502959978',
-                            price: '29/10'
+                            price: '29/10',
+                            isSelected: false
                         }, {
                             name: 'Hull City U23',
                             id: 'OB_OU1502959979',
-                            price: '9/2'
+                            price: '9/2',
+                            isSelected: false
                         }
                     ]
                 },
@@ -32,15 +35,18 @@ const events = {
                         {
                             name: 'QPR U23',
                             id: 'OB_OU1502959977',
-                            price: '4/7'
+                            price: '4/7',
+                            isSelected: false
                         }, {
                             name: 'draw',
                             id: 'OB_OU1502959978',
-                            price: '29/10'
+                            price: '29/10',
+                            isSelected: false
                         }, {
                             name: 'Hull City U23',
                             id: 'OB_OU1502959979',
-                            price: '9/2'
+                            price: '9/2',
+                            isSelected: false
                         }
                     ]
                 }
@@ -62,15 +68,18 @@ const events = {
                         {
                             name: '222 U23',
                             id: 'OB_OU1502959977',
-                            price: '4/7'
+                            price: '4/7',
+                            isSelected: false
                         }, {
                             name: 'draw',
                             id: 'OB_OU1502959978',
-                            price: '29/10'
+                            price: '29/10',
+                            isSelected: false
                         }, {
                             name: '222 City U23',
                             id: 'OB_OU1502959979',
-                            price: '9/2'
+                            price: '9/2',
+                            isSelected: false
                         }
                     ]
                 }
@@ -92,15 +101,18 @@ const events = {
                         {
                             name: '333 U23',
                             id: 'OB_OU1502959977',
-                            price: '4/7'
+                            price: '4/7',
+                            isSelected: false
                         }, {
                             name: 'draw',
                             id: 'OB_OU1502959978',
-                            price: '29/10'
+                            price: '29/10',
+                            isSelected: false
                         }, {
                             name: '333 City U23',
                             id: 'OB_OU1502959979',
-                            price: '9/2'
+                            price: '9/2',
+                            isSelected: false
                         }
                     ]
                 }
