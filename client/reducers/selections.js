@@ -1,29 +1,58 @@
-export default function selections(state=[], action) {
+export default function(state = [], action) {
 
+    switch (action.type) {
+        case "ADD_SELECTION":
 
-  switch(action.type){
-    case "ADD_SELECTION": {
-			const addSelectionList = [...state.selections,   {
-          id: action.selectionID,
-      }];
-      return {
-        ...state,
-				selections: addSelectionList
-		 	};
-	 	}
+            {
 
-    case "REMOVE_SELECTION": {
-			const removeSelectionList = [
-				...state.selections.slice(0, action.selectionID),
-				...state.selections.slice(action.selectionID + 1)
-			];
-      return {
-				...state,
-				selections: removeSelectionList
-			};
-		}
+                const addPlayerList = {
+                    id: action.selectionID
+                }
 
-    default:
-      return state;
-  }
+                if (!shouldUpdate(state, action.selectionID)) {
+                    return [
+                        ...state, {
+                            selection: addPlayerList
+                        }
+                    ];
+                } else {
+                    return state;
+                }
+            }
+
+            /*
+      return [
+                ...state, {
+                    selections: action.selectionID
+                }
+            ];
+*/
+
+        case "REMOVE_SELECTION":
+            {
+                const removeSelectionList = [
+                    ...state.selections.slice(0, action.selectionID),
+                    ...state.selections.slice(action.selectionID + 1)
+                ];
+                return {
+                    ...state,
+                    selection: removeSelectionList
+                };
+            }
+
+        default:
+            return state;
+    }
+}
+
+function shouldUpdate(state, id) {
+    let found = false
+    if (state.length > 0) {
+        state.map((selections) => {
+            if (selections.selection.id === id) {
+                found = true
+            }
+        })
+    }
+    return found
 }

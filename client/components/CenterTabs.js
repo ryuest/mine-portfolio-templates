@@ -11,11 +11,9 @@ class Selection extends React.Component {
     addToSelection(event, selectionID) {
     event.preventDefault();
     console.log('GOnna make some selection! 🎣');
-  //  const selectionID = {
-  //    id: this.id,
-  //      }
-    this.props.getComponent(event, selectionID);
-  //  this.fishForm.reset();
+
+//    this.props.getComponent(event, selectionID);
+
   }
 
     render() {
@@ -23,7 +21,7 @@ class Selection extends React.Component {
         const isAvailable = selection.isSelected === 'available';
         return (
             <div className="market_selection">
-                <button onClick={(e) => this.addToSelection(e, selection.id)} id={selection.id} className="betbutton" data-displayed="data-displayed2 from JSON" data-status="data-status from JSON">
+                <button onClick={() => this.props.getComponent(selection.id)} id={selection.id} className="betbutton" data-displayed="data-displayed2 from JSON" data-status="data-status from JSON">
                     <span className="betbutton_odds">{selection.price}</span>
                     <span className="icon"></span>
                 </button>
@@ -39,7 +37,7 @@ const Market = React.createClass({
         const {market} = this.props;
         return (
             <div id={market.id} className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-                {market.selections.map((selection, i) => <Selection key={i} selection={selection} getComponent={this.props.getComponent}/>)}
+                {market.selections.map((selection, i) => <Selection key={i} selection={selection} {...this.props}/>)}
             </div>
         )
     }
@@ -63,7 +61,7 @@ class Event extends React.Component {
                             </li>
                         </ul>
                     </div>
-                    {details.markets.map((market, i) => <Market key={i} market={market} getComponent={this.props.getComponent}/>)}
+                    {details.markets.map((market, i) => <Market key={i} market={market} {...this.props}/>)}
                 </div>
             </div>
         )
@@ -113,7 +111,7 @@ class CenterTabs extends React.Component {
                                             <section id="market_wrapper-in-play">
                                                 {Object.keys(this.state.eventsInplay).map(key => <Event
                                                   key={key} details={this.state.eventsInplay[key]}
-                                                  getComponent={this.props.getComponent}
+                                                  {...this.props}
                                                 />)}
                                             </section>
                                         </div>

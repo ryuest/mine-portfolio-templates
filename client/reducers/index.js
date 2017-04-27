@@ -6,6 +6,7 @@ import comments from './comments';
 import counter from './counter';
 import speechKeys from './speech';
 import players from './players';
+import selections from './selections'
 
 const rootReducer = combineReducers({
   posts,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   comments,
   speechKeys,
   players,
+  selections,
   routing: routerReducer
 });
 

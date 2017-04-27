@@ -31,7 +31,8 @@ const mapStateToProps = (state) => ({
     posts: selectorsPost.getPosts(state.posts),
     nol: 0,
     counter:state.counter,
-    players: state.players.players
+    players: state.players.players,
+    selections: state.selections
 
 });
 /*

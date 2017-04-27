@@ -1,6 +1,21 @@
 import * as PlayerActionTypes from '../actiontypes/player';
 // increment
 
+
+export function getComponent(selectionID) {
+  return{
+    type: 'ADD_SELECTION',
+    selectionID
+  }
+}
+
+export function removeSelectionList(selectionID) {
+  return{
+    type: 'REMOVE_SELECTION',
+    selectionID
+  }
+}
+
 export function increment(likes) {
   return{
     type: 'INCREMENT_LIKES',
