@@ -2,31 +2,20 @@ export default function(state = [], action) {
 
     switch (action.type) {
         case "ADD_SELECTION":
-
             {
-
-                const addPlayerList = {
+                const addSelectionToList = {
                     id: action.selectionID
                 }
-
                 if (!shouldUpdate(state, action.selectionID)) {
                     return [
                         ...state, {
-                            selection: addPlayerList
+                            selection: addSelectionToList
                         }
                     ];
                 } else {
                     return state;
                 }
             }
-
-            /*
-      return [
-                ...state, {
-                    selections: action.selectionID
-                }
-            ];
-*/
 
         case "REMOVE_SELECTION":
             {

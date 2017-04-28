@@ -2,7 +2,7 @@ import * as PlayerActionTypes from '../actiontypes/player';
 // increment
 
 
-export function getComponent(selectionID) {
+export function getSelection(selectionID) {
   return{
     type: 'ADD_SELECTION',
     selectionID

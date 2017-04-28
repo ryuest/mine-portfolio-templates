@@ -9,7 +9,7 @@ import competitions from '../data/competitions';
 class App extends React.Component {
     constructor() {
         super();
-    //    this.getComponent = this.getComponent.bind(this);
+    //    this.getSelection = this.getSelection.bind(this);
     //    this.addToSelectionBetSlip = this.addToSelectionBetSlip.bind(this);
 
         this.state = {
@@ -20,7 +20,7 @@ class App extends React.Component {
     }
 
 
-    getComponent(event, selectionID) {
+    getSelection(event, selectionID) {
       console.log("zzz")
   //  this.props.addSelectionList("222")
     }
@@ -30,9 +30,6 @@ class App extends React.Component {
     }
 
     render() {
-
-
-
         return (
             <div className="off-canvas_inner-wrapper">
                 <aside className="off-canvas_left">
