@@ -20,8 +20,14 @@ class Likes extends React.Component {
 class RightPanel extends React.Component {
     constructor() {
         super();
+        this.state = {
+         isSelected: false
+       }
 }
+
 render() {
+  this.state.isSelected = this.props.selections.length > 0
+  console.log(this.state.isSelected)
     return (
         <div className="betslipwrapper">
             <div className="betslip-container">
@@ -40,7 +46,7 @@ render() {
                             </li>
                         </ul>
                     </nav>
-                    <Betslip/>
+                    {this.state.isSelected > 0 ? <Betslip selections={this.props.selections} /> : null }
                 </div>
                 <div className="fb_tutorial">
                     <Game/>

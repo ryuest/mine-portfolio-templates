@@ -2,10 +2,10 @@ import * as PlayerActionTypes from '../actiontypes/player';
 // increment
 
 
-export function getSelection(selectionID) {
+export function getSelection(selection) {
   return{
     type: 'ADD_SELECTION',
-    selectionID
+    selection
   }
 }
 

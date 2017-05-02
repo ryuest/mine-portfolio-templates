@@ -6,29 +6,24 @@ import competitions from '../data/competitions';
 class Selection extends React.Component {
   constructor() {
     super();
+    this.state = {
+     isSelected: false}
   }
 
-    componentWillUpdate() {
-      console.log('componentWillUpdate');
-    }
 
-  /*
-    componentWillReceiveProps() {
-      console.log('componentWillReceiveProps')
-    }
 
-    componentDidUpdate() {
-      console.log("componentDidUpdate")
-      //  this.addToSelectedList();
-    }
-  */
   addToSelectedList(selection) {
-    if (!selection.isSelected) {
-      selection.isSelected = true
+    if (!this.state.isSelected) {
+    //  selection.isSelected = true
+      this.setState({
+        isSelected: true
+      });
       console.log('GOnna make some ADD selection! 🎣' + selection.id + selection.isSelected);
-      this.props.getSelection(selection.id)
+      this.props.getSelection(selection)
     } else {
-      selection.isSelected = false
+      this.setState({
+        isSelected: false
+      });
       console.log('GOnna make some REMOVE selection! 🎣' + selection.id + selection.isSelected);
       //
     }
@@ -43,7 +38,7 @@ class Selection extends React.Component {
     return (
       <div className="market_selection">
         <button onClick={() => this.addToSelectedList(selection)}
-          style={selection.isSelected? {background: '#36EA4C'} : {background: '#D6DCD7'}}
+          style={this.state.isSelected ? {background: '#36EA4C'} : {background: '#D6DCD7'}}
           id={selection.id} className="betbutton" data-displayed="data-displayed2 from JSON"
           data-status="data-status from JSON">
           <span className="betbutton_odds">{selection.price}</span>

@@ -4,7 +4,9 @@ export default function(state = [], action) {
         case "ADD_SELECTION":
             {
                 const addSelectionToList = {
-                    id: action.selectionID
+                    id: action.selection.id,
+                    name: action.selection.name,
+                    price: action.selection.price
                 }
                 if (!shouldUpdate(state, action.selectionID)) {
                     return [
