@@ -27,7 +27,6 @@ class RightPanel extends React.Component {
 
 render() {
   this.state.isSelected = this.props.selections.length > 0
-  console.log(this.state.isSelected)
     return (
         <div className="betslipwrapper">
             <div className="betslip-container">

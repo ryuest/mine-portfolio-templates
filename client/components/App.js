@@ -19,16 +19,6 @@ class App extends React.Component {
 
     }
 
-
-    getSelection(event, selectionID) {
-      console.log("zzz")
-  //  this.props.addSelectionList("222")
-    }
-
-    componentWillMount() {
-
-    }
-
     render() {
         return (
             <div className="off-canvas_inner-wrapper">
@@ -44,7 +34,7 @@ class App extends React.Component {
                 <div className="off-canvas_main">
                     <CenterTabs
                     {...this.props}
-                    addToOrder={this.addToOrder} />
+                     />
 
                 </div>
                 <div className="off-canvas_right">

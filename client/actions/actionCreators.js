@@ -1,6 +1,3 @@
-import * as PlayerActionTypes from '../actiontypes/player';
-// increment
-
 
 export function getSelection(selection) {
   return{
@@ -9,10 +6,10 @@ export function getSelection(selection) {
   }
 }
 
-export function removeSelectionList(selectionID) {
+export function removeSelection(selection) {
   return{
     type: 'REMOVE_SELECTION',
-    selectionID
+    selection
   }
 }
 
@@ -23,27 +20,7 @@ export function increment(likes) {
   }
 }
 
-export function incrementCounter() {
-  return{
-    type: 'INCREMENT'
-  }
-}
 
-export const updatePlayerScore2 = (index, score)  => {
-   return {
-     type: "UPDATE_PLAYER_SCORE2",
-     index,
-     score
-  };
-};
-/*
-const increment = (index, likes, name) => ({
-    type: 'ADD_COMMENTZZ',
-    index,
-    likes,
-    name
-});
-*/
 export function log() {
   return{
     type: 'LOG'
@@ -86,35 +63,6 @@ const fetchedSpeechKeys = (speechKeys) => ({
     type: 'FETCHED_SPEECH_KEYS',
     data: { speechKeys },
 });
-
-export const addPlayer = name => {
-  return {
-    type: PlayerActionTypes.ADD_PLAYER,
-    name
-  };
-};
-
-export const removePlayer = index => {
-  return {
-    type: PlayerActionTypes.REMOVE_PLAYER,
-    index
-  };
-};
-
-export const updatePlayerScore = (index, score)  => {
-   return {
-     type: PlayerActionTypes.UPDATE_PLAYER_SCORE,
-     index,
-     score
-  };
-};
-
-export const selectPlayer = index => {
-  return {
-    type: PlayerActionTypes.SELECT_PLAYER,
-    index
-  };
-};
 
 
 

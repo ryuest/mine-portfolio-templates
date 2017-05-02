@@ -24,8 +24,6 @@ export const fetchFirebase = (path) => {
     if (resolvedPath instanceof Array) {
         resolvedPath = path.join('/');
     }
-    console.log("getting url "+ path)
-    console.log(database.ref(resolvedPath).once('value').then((snapshot) => snapshot.val()))
     return database.ref(resolvedPath).once('value').then((snapshot) => snapshot.val());
 };
 
@@ -45,8 +43,6 @@ function* watchIncrementAsync() {
 function* zz() {
   console.log("zz log")
   yield call(delay, 1000)
-//  yield put(actions.increment(0, 22, "jura"));
-//  yield put(actions.incrementCounter());
   yield put(actions.increment(0));
 }
 
@@ -60,7 +56,6 @@ function* log() {
 export function * doFetchPosts() {
     // make API call without blocking application
     const posts = yield call(fetchFirebase, 'posts');
-
     // when done, send data to reducer
     yield put(actions.fetchedPostsKeys(posts));
 }

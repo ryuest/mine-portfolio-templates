@@ -18,19 +18,18 @@ class Selection extends React.Component {
       this.setState({
         isSelected: true
       });
-      console.log('GOnna make some ADD selection! 🎣' + selection.id + selection.isSelected);
+  //    console.log('GOnna make some ADD selection! 🎣' + selection.id + selection.isSelected);
       this.props.getSelection(selection)
     } else {
       this.setState({
         isSelected: false
       });
-      console.log('GOnna make some REMOVE selection! 🎣' + selection.id + selection.isSelected);
-      //
+    //  console.log('GOnna make some REMOVE selection! 🎣' + selection.id + selection.isSelected); //
+      this.props.removeSelection(selection)
     }
   }
 
   render() {
-    console.log('render Selection')
     const active = ""
     const {selection} = this.props;
     const isAvailable = selection.isSelected === 'available';
@@ -118,7 +117,6 @@ class CenterTabs extends React.Component {
 
 
   render() {
-    console.log('render Central Tabs')
     return (
       <div className="tabs_panels">
         <div>
