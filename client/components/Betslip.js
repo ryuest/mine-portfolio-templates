@@ -27,7 +27,7 @@ class BetSlipSelection extends Component {
 
         return (
             <div id={"single-bet_" + this.props.selection.selection.id} className="betslip-selection">
-                <header>{this.props.selection.selection.id}</header>
+                <header>{this.props.selection.selection.eventName}</header>
                 <div className="betslip-selection_content">
                     <span className="betslip-selection_event">
                         <em className="u-highlight">{this.props.selection.selection.name}</em>

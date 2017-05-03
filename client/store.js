@@ -6,10 +6,8 @@ import actions from './actions/actionCreators';
 
 // import all reducers
 import rootReducer from './reducers/index';
-
 // initial data
 import comments from './data/comments';
-import players from './data/players';
 
 //saga
 import createSagaMiddleware from 'redux-saga';
@@ -20,16 +18,13 @@ const sagaMiddleware = createSagaMiddleware();
 // create an object for the default data
 const defaultState = {
   comments
-
 };
 
 const store = createStore(rootReducer, defaultState, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
 sagaMiddleware.run(rootSaga);
 
-store.dispatch(actions.fetchSpeechKeys());
 store.dispatch(actions.fetchPosts());
-
 
 export const history = syncHistoryWithStore(browserHistory, store);
 

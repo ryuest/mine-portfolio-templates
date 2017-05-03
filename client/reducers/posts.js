@@ -7,8 +7,6 @@ export default function(state = {'posts': ['posts' : {'likes': 0}]}, action) {
             };
         case 'INCREMENT_LIKES':
             const i = action.index;
-            console.log(...state.posts)
-            console.log(...state)
             const removePlayerList = [
               ...state.posts.slice(0, 0),
               {...state.posts[0], likes: state.posts[0].likes + 1},

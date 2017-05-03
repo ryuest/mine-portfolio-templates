@@ -6,30 +6,15 @@ import actions from '../actions/actionCreators'; //rootSaga
 //import actionCreators from '../actions/sagas';
 import Main from './Main';
 import App from './App';
-import { selectors } from '../reducers/speech';
 import { selectorsPost } from '../reducers/posts';
-import {selectorsPlayers} from '../reducers/comments';
-
-/*
-function mapStateToProps(state) {
-  return {
-    ss: selectors.getSpeechKeys(state)
-
-  }
-}
-*/
 
 
 function mapDispachToProps(dispatch) {
   return bindActionCreators(actionCreators, dispatch);
 }
 
-
-
 const mapStateToProps = (state) => ({
-    speechKeys: selectors.getSpeechKeys(state.speechKeys),
     posts: selectorsPost.getPosts(state.posts),
-    players: state.players.players,
     selections: state.selections
 });
 /*

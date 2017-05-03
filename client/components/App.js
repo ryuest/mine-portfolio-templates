@@ -9,14 +9,9 @@ import competitions from '../data/competitions';
 class App extends React.Component {
     constructor() {
         super();
-    //    this.getSelection = this.getSelection.bind(this);
-    //    this.addToSelectionBetSlip = this.addToSelectionBetSlip.bind(this);
-
         this.state = {
-            pages: navPages,
-            isSelected: false
+            pages: navPages
         }
-
     }
 
     render() {
@@ -33,12 +28,17 @@ class App extends React.Component {
                 </aside>
                 <div className="off-canvas_main">
                     <CenterTabs
-                    {...this.props}
+                      getSelection={this.props.getSelection}
+                      removeSelection={this.props.removeSelection}
                      />
 
                 </div>
                 <div className="off-canvas_right">
-                    <RightPanel {...this.props}/>
+                    <RightPanel
+                    selections={this.props.selections}
+                    log={this.props.log}
+                    posts={this.props.posts}
+                    />
                 </div>
             </div>
         )

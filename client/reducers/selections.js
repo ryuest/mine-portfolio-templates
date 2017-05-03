@@ -6,7 +6,8 @@ export default function(state = [], action) {
                 const addSelectionToList = {
                     id: action.selection.id,
                     name: action.selection.name,
-                    price: action.selection.price
+                    price: action.selection.price,
+                    eventName: action.selection.eventName
                 }
                 if (!shouldUpdate(state, action.selection.id)) {
                     return [

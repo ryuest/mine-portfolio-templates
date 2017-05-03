@@ -10,8 +10,6 @@ class Selection extends React.Component {
      isSelected: false}
   }
 
-
-
   addToSelectedList(selection) {
     if (!this.state.isSelected) {
     //  selection.isSelected = true
@@ -30,10 +28,7 @@ class Selection extends React.Component {
   }
 
   render() {
-    const active = ""
     const {selection} = this.props;
-    const isAvailable = selection.isSelected === 'available';
-    // style={{background: selection.color}}
     return (
       <div className="market_selection">
         <button onClick={() => this.addToSelectedList(selection)}
@@ -47,15 +42,13 @@ class Selection extends React.Component {
     )
   }
 }
-//  onClick={this.props.getSelection}
-//  <button onClick={() => this.props.addToOrder(index)} disabled={!isAvailable}>{buttonText}</button>
 
 const Market = React.createClass({
   render() {
     const {market} = this.props;
     return (
       <div id={market.id} className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-        {market.selections.map((selection, i) => <Selection key={i} selection={selection} {...this.props}/>)}
+        {market.selections.map((selection, i) => <Selection key={i} selection={selection} getSelection={this.props.getSelection} removeSelection={this.props.removeSelection}/>)}
       </div>
     )
   }
@@ -79,7 +72,7 @@ class Event extends React.Component {
               </li>
             </ul>
           </div>
-          {details.markets.map((market, i) => <Market key={i} market={market} {...this.props}/>)}
+          {details.markets.map((market, i) => <Market key={i} market={market} getSelection={this.props.getSelection} removeSelection={this.props.removeSelection}/>)}
         </div>
       </div>
     )
@@ -129,7 +122,10 @@ class CenterTabs extends React.Component {
                   <div className="markets-group-container">
                     <div className="events-group-container">
                       <section id="market_wrapper-in-play">
-                        {Object.keys(this.state.eventsInplay).map(key => <Event key={key} details={this.state.eventsInplay[key]} {...this.props}/>)}
+                        {Object.keys(this.state.eventsInplay).map(key => <Event key={key}
+                          details={this.state.eventsInplay[key]}
+                          getSelection={this.props.getSelection}
+                          removeSelection={this.props.removeSelection}/>)}
                       </section>
                     </div>
                   </div>
@@ -138,7 +134,6 @@ class CenterTabs extends React.Component {
             </span>
           </section>
         </div>
-
       </div>
     )
   }

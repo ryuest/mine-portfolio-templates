@@ -40,8 +40,8 @@ function* watchIncrementAsync() {
   yield* takeEvery('INCREMENT_ASYNC', incrementAsync)
 }
 
-function* zz() {
-  console.log("zz log")
+function* incrementSaga() {
+  console.log("incrementSaga log")
   yield call(delay, 1000)
   yield put(actions.increment(0));
 }
@@ -49,8 +49,8 @@ function* zz() {
 
 function* log() {
   console.log("watchIncrementAsync LOG")
-  zz()
-  yield* takeEvery('LOG', zz)
+  incrementSaga()
+  yield* takeEvery('LOG', incrementSaga)
 }
 
 export function * doFetchPosts() {
@@ -60,20 +60,9 @@ export function * doFetchPosts() {
     yield put(actions.fetchedPostsKeys(posts));
 }
 
-// run this function for each FETCH_SPEECH_KEYS
-export function * doFetchSpeechKeys() {
-    // make API call without blocking application
-    const data = yield call(fetchFirebase, 'speechKeys');
-
-    // when done, send data to reducer
-    yield put(actions.fetchedSpeechKeys(data));
-}
-
-
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
   yield [
-    takeLatest('FETCH_SPEECH_KEYS', doFetchSpeechKeys),
     takeLatest('FETCH_POSTS', doFetchPosts),
     log()
   ]

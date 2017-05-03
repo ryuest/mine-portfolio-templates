@@ -55,15 +55,6 @@ const fetchedPostsKeys = (posts) => ({
     data: { posts },
 });
 
-const fetchSpeechKeys = () => ({
-    type: 'FETCH_SPEECH_KEYS',
-});
-
-const fetchedSpeechKeys = (speechKeys) => ({
-    type: 'FETCHED_SPEECH_KEYS',
-    data: { speechKeys },
-});
-
 
 
 
@@ -71,6 +62,4 @@ export default {
     increment,
     fetchPosts,
     fetchedPostsKeys,
-    fetchSpeechKeys,
-    fetchedSpeechKeys,
 };
