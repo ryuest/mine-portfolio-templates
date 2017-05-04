@@ -1,50 +1,62 @@
 
-export function getSelection(selection) {
-  return{
+const getSelection = (selection) => ({
     type: 'ADD_SELECTION',
     selection
-  }
-}
+});
 
-export function removeSelection(selection) {
-  return{
+const removeSelection = (selection) => ({
     type: 'REMOVE_SELECTION',
     selection
-  }
-}
+});
 
-export function increment(likes) {
-  return{
+const clearBets = () => ({
+    type: 'CLEAR_ALL_SELECTIONS'
+});
+
+const enableReceipt = () => ({
+    type: 'ENABLE_RECEIPT'
+});
+
+const disableReceipt = () => ({
+    type: 'DISABLE_RECEIPT'
+});
+
+const enableBetSlip = () => ({
+    type: 'ENABLE_BETSLIP'
+});
+
+const disableBetSlip = () => ({
+    type: 'DISABLE_BETSLIP'
+});
+
+const getReceipt = () => ({
+    type: 'GET_RECEIPT'
+});
+
+const increment = (likes) => ({
     type: 'INCREMENT_LIKES',
     likes
-  }
-}
+});
 
 
-export function log() {
-  return{
+const log = () => ({
     type: 'LOG'
-  }
-}
+});
 
 // add comments
-export function addComent(postId, author, comment) {
-  return{
+const addComent = (postId, author, comment) => ({
     type: 'ADD_COMMENT',
     postId,
     author,
     comment
-  }
-}
+});
 
 // remove commnent
-export function removeComment(postId, i) {
-  return{
+const removeComment = (postId, i) => ({
     type: 'REMOVE_COMMENT',
     i,
     postId
-  }
-}
+});
 
 const fetchPosts = () => ({
     type: 'FETCH_POSTS',
@@ -58,8 +70,22 @@ const fetchedPostsKeys = (posts) => ({
 
 
 
+
 export default {
     increment,
     fetchPosts,
     fetchedPostsKeys,
+    enableReceipt,
+    enableBetSlip,
+    disableBetSlip,
+    getSelection,
+    removeSelection,
+    clearBets,
+    enableReceipt,
+    disableReceipt,
+    enableBetSlip,
+    disableBetSlip,
+    getReceipt,
+    log
+
 };

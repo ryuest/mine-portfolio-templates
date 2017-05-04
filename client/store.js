@@ -26,6 +26,7 @@ sagaMiddleware.run(rootSaga);
 
 store.dispatch(actions.fetchPosts());
 
+
 export const history = syncHistoryWithStore(browserHistory, store);
 
 /*

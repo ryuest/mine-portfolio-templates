@@ -29,7 +29,10 @@ class App extends React.Component {
                 <div className="off-canvas_main">
                     <CenterTabs
                       getSelection={this.props.getSelection}
+                      selections={this.props.selections}
                       removeSelection={this.props.removeSelection}
+                      betslip={this.props.betslip}
+                      disableReceipt={this.props.disableReceipt}
                      />
 
                 </div>
@@ -38,6 +41,10 @@ class App extends React.Component {
                     selections={this.props.selections}
                     log={this.props.log}
                     posts={this.props.posts}
+                    clearBets={this.props.clearBets}
+                    getReceipt={this.props.getReceipt}
+                    betslip={this.props.betslip}
+                    disableReceipt={this.props.disableReceipt}
                     />
                 </div>
             </div>

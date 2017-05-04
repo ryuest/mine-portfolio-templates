@@ -60,15 +60,19 @@ export function * doFetchPosts() {
     yield put(actions.fetchedPostsKeys(posts));
 }
 
+
+export function * placeBetGetReceipt() {
+  console.log("placeBetGetReceipt Saga")
+  yield put(actions.enableReceipt());
+  yield put(actions.disableBetSlip());
+  yield put(actions.clearBets());
+}
+
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
   yield [
     takeLatest('FETCH_POSTS', doFetchPosts),
+    takeLatest('GET_RECEIPT', placeBetGetReceipt),
     log()
   ]
 }
-
-//
-
-
-//  helloSaga(),

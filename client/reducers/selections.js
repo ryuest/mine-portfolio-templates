@@ -1,5 +1,7 @@
 export default function(state = [], action) {
-
+  const initialState = {
+      selection: {}
+  };
     switch (action.type) {
         case "ADD_SELECTION":
             {
@@ -27,9 +29,24 @@ export default function(state = [], action) {
                 ...state.slice(selectionToRemove + 1)
             ]
 
+        case 'CLEAR_ALL_SELECTIONS':
+            return [];
+
         default:
             return state;
     }
+}
+
+function clearBets(state) {
+    var list = state;
+    const size = list.length
+    console.log(list)
+    while (list.length > 0) {
+        list.slice(0, 1);
+    }
+
+    console.log(list)
+    return list
 }
 
 function shouldUpdate(state, id) {

@@ -7,7 +7,9 @@ class Selection extends React.Component {
   constructor() {
     super();
     this.state = {
-     isSelected: false}
+     isSelected: false,
+     isCleared: false
+   }
   }
 
   addToSelectedList(selection) {
@@ -18,6 +20,9 @@ class Selection extends React.Component {
       });
   //    console.log('GOnna make some ADD selection! 🎣' + selection.id + selection.isSelected);
       this.props.getSelection(selection)
+      if (this.props.betslip.receipt) {
+        this.props.disableReceipt()
+      }
     } else {
       this.setState({
         isSelected: false
@@ -27,12 +32,28 @@ class Selection extends React.Component {
     }
   }
 
+  clearSelected() {
+    if (this.state.isSelected) {
+    this.setState({
+      isSelected: false
+    });
+      }
+  }
+
+  componentDidUpdate() {
+    this.state.isCleared = this.props.selections.length === 0
+    if (this.state.isCleared) {
+      this.clearSelected()
+    }
+  }
+
+
   render() {
     const {selection} = this.props;
     return (
       <div className="market_selection">
         <button onClick={() => this.addToSelectedList(selection)}
-          style={this.state.isSelected ? {background: '#36EA4C'} : {background: '#D6DCD7'}}
+          style={this.state.isSelected && !this.state.isCleared ? {background: '#36EA4C'} : {background: '#D6DCD7'}}
           id={selection.id} className="betbutton" data-displayed="data-displayed2 from JSON"
           data-status="data-status from JSON">
           <span className="betbutton_odds">{selection.price}</span>
@@ -48,7 +69,11 @@ const Market = React.createClass({
     const {market} = this.props;
     return (
       <div id={market.id} className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-        {market.selections.map((selection, i) => <Selection key={i} selection={selection} getSelection={this.props.getSelection} removeSelection={this.props.removeSelection}/>)}
+        {market.selections.map((selection, i) => <Selection key={i} selection={selection} getSelection={this.props.getSelection}
+          removeSelection={this.props.removeSelection}
+          selections={this.props.selections}
+          betslip={this.props.betslip}
+          disableReceipt={this.props.disableReceipt}/>)}
       </div>
     )
   }
@@ -72,7 +97,14 @@ class Event extends React.Component {
               </li>
             </ul>
           </div>
-          {details.markets.map((market, i) => <Market key={i} market={market} getSelection={this.props.getSelection} removeSelection={this.props.removeSelection}/>)}
+          {details.markets.map((market, i) => <Market
+            key={i}
+            market={market}
+            getSelection={this.props.getSelection}
+            removeSelection={this.props.removeSelection}
+            selections={this.props.selections}
+            betslip={this.props.betslip}
+            disableReceipt={this.props.disableReceipt}/>)}
         </div>
       </div>
     )
@@ -107,8 +139,6 @@ class CenterTabs extends React.Component {
     }
   }
 
-
-
   render() {
     return (
       <div className="tabs_panels">
@@ -125,7 +155,10 @@ class CenterTabs extends React.Component {
                         {Object.keys(this.state.eventsInplay).map(key => <Event key={key}
                           details={this.state.eventsInplay[key]}
                           getSelection={this.props.getSelection}
-                          removeSelection={this.props.removeSelection}/>)}
+                          removeSelection={this.props.removeSelection}
+                          selections={this.props.selections}
+                          betslip={this.props.betslip}
+                          disableReceipt={this.props.disableReceipt}/>)}
                       </section>
                     </div>
                   </div>

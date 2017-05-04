@@ -20,12 +20,14 @@ class RightPanel extends React.Component {
     constructor() {
         super();
         this.state = {
-         isSelected: false
+         isSelected: false,
+         isReceipt: false
        }
 }
 
 render() {
   this.state.isSelected = this.props.selections.length > 0
+  this.state.isReceipt = this.props.betslip.receipt
     return (
         <div className="betslipwrapper">
             <div className="betslip-container">
@@ -44,7 +46,12 @@ render() {
                             </li>
                         </ul>
                     </nav>
-                    {this.state.isSelected > 0 ? <Betslip selections={this.props.selections} /> : null }
+                    {this.state.isSelected || this.state.isReceipt > 0 ?
+                      <Betslip selections={this.props.selections}
+                               clearBets={this.props.clearBets}
+                               getReceipt={this.props.getReceipt}
+                               betslip={this.props.betslip}
+                               disableReceipt={this.props.disableReceipt}/> : null }
                 </div>
                 <div className="fb_tutorial">
                     <Game/>

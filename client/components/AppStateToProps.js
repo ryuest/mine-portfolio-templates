@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actionCreators from '../actions/actionCreators';
+//import * as actionCreators from '../actions/actionCreators';
 import actions from '../actions/actionCreators'; //rootSaga
 //import actionCreators from '../actions/sagas';
 import Main from './Main';
@@ -10,12 +10,13 @@ import { selectorsPost } from '../reducers/posts';
 
 
 function mapDispachToProps(dispatch) {
-  return bindActionCreators(actionCreators, dispatch);
+  return bindActionCreators(actions, dispatch);
 }
 
 const mapStateToProps = (state) => ({
     posts: selectorsPost.getPosts(state.posts),
-    selections: state.selections
+    selections: state.selections,
+    betslip: state.betslip
 });
 /*
 const mapDispachToProps = (dispatch) => ({
