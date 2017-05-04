@@ -16,7 +16,8 @@ class Selection extends React.Component {
     if (!this.state.isSelected) {
     //  selection.isSelected = true
       this.setState({
-        isSelected: true
+        isSelected: true,
+        isCleared: false
       });
   //    console.log('GOnna make some ADD selection! 🎣' + selection.id + selection.isSelected);
       this.props.getSelection(selection)
