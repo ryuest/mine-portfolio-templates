@@ -13,8 +13,9 @@ const clearBets = () => ({
     type: 'CLEAR_ALL_SELECTIONS'
 });
 
-const enableReceipt = () => ({
-    type: 'ENABLE_RECEIPT'
+const enableReceipt = (betStake) => ({
+    type: 'ENABLE_RECEIPT',
+    betStake
 });
 
 const disableReceipt = () => ({
@@ -29,15 +30,15 @@ const disableBetSlip = () => ({
     type: 'DISABLE_BETSLIP'
 });
 
-const getReceipt = () => ({
-    type: 'GET_RECEIPT'
+const getReceipt = (data) => ({
+    type: 'GET_RECEIPT',
+    data
 });
 
 const increment = (likes) => ({
     type: 'INCREMENT_LIKES',
     likes
 });
-
 
 const log = () => ({
     type: 'LOG'
@@ -67,7 +68,9 @@ const fetchedPostsKeys = (posts) => ({
     data: { posts },
 });
 
-
+const submitBet = () => ({
+      type: 'INPUT_FORM_SUBMIT'
+});
 
 
 
@@ -86,6 +89,7 @@ export default {
     enableBetSlip,
     disableBetSlip,
     getReceipt,
-    log
+    log,
+    submitBet
 
 };

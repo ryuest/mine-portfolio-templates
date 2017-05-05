@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-//  <p>{JSON.stringify(this.props.selections)}</p>
+import ContactForm  from './InputForm'
 
 class Betslip extends Component {
     constructor() {
@@ -14,7 +14,7 @@ class Betslip extends Component {
             <div>
                 <header className="betslip-header">Singles</header>
                 <div id="bets-container-singles">
-                    {Object.keys(this.props.selections).map((key) => (<BetSlipSelection key={key} selection={this.props.selections[key]} />))}
+                    <ContactPage selections={this.props.selections} getReceipt={this.props.getReceipt} submitBet={this.props.submitBet}/>
                     <div className="betslip-bet-actions">
                         <button onClick={() => this.props.getReceipt()}>Place Bet</button>
                     </div>
@@ -39,35 +39,7 @@ class Betslip extends Component {
     }
 }
 
-class BetSlipSelection extends Component {
-    render() {
-        return (
-            <div id={"single-bet_" + this.props.selection.selection.id} className="betslip-selection">
-                <header>{this.props.selection.selection.eventName}</header>
-                <div className="betslip-selection_content">
-                    <span className="betslip-selection_event">
-                        <em className="u-highlight">{this.props.selection.selection.name}</em>
-                    </span>
-                </div>
-                <div className="betslip-selection_stake">
-                    <span className="betslip-selection_input">
-                        <input type="text" id={"stake-input_" + this.props.selection.selection.id}></input>
-                    </span>
-                </div>
-                <div className="betslip-footer__totals">
-                    <div className="betslip-footer__to-return">
-                        <div className="betslip-footer__to-return-label">
-                            To return:
-                            <span className="betslip-footer__total-stake-price">
-                                {this.props.selection.selection.price}
-                                2.03</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-}
+
 
 class BetSlipReceipt extends Component {
     render() {
@@ -103,6 +75,18 @@ class BetSlipReceipt extends Component {
             </div>
         );
     }
+}
+
+class ContactPage extends React.Component {
+  submit(values){
+    // Do something with the form values
+    console.log(values);
+  }
+  render() {
+    return (
+      <ContactForm onSubmit={this.submit} selections={this.props.selections} getReceipt={this.props.getReceipt} submitBet={this.props.submitBet}/>
+    );
+  }
 }
 
 export default Betslip;
