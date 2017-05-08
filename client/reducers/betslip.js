@@ -13,9 +13,8 @@ export default function(state = [], action) {
         case 'ENABLE_RECEIPT':
             return {
                 ...state,
-                betStake: action.betStake,
                 receipt: true
-            }
+              }
 
         case 'DISABLE_RECEIPT':
             return {

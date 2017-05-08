@@ -45,7 +45,7 @@ class App extends React.Component {
                     getReceipt={this.props.getReceipt}
                     betslip={this.props.betslip}
                     disableReceipt={this.props.disableReceipt}
-                    submitBet={this.props.submitBet}
+                    placeBet={this.props.placeBet}
                     />
                 </div>
             </div>

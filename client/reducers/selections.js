@@ -1,7 +1,5 @@
 export default function(state = [], action) {
-  const initialState = {
-      selection: {}
-  };
+
     switch (action.type) {
         case "ADD_SELECTION":
             {

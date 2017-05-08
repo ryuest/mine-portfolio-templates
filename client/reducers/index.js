@@ -6,12 +6,14 @@ import posts from './posts';
 import comments from './comments';
 import selections from './selections'
 import betslip from './betslip'
+import stakes from './stakes'
 
 const rootReducer = combineReducers({
   posts,
   comments,
   selections,
   betslip,
+  stakes,
   form: formReducer,
   routing: routerReducer
 });

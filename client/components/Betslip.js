@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ContactForm  from './InputForm'
+import BetSlipInputForm  from './InputForm'
 
 class Betslip extends Component {
     constructor() {
@@ -14,10 +14,7 @@ class Betslip extends Component {
             <div>
                 <header className="betslip-header">Singles</header>
                 <div id="bets-container-singles">
-                    <ContactPage selections={this.props.selections} getReceipt={this.props.getReceipt} submitBet={this.props.submitBet}/>
-                    <div className="betslip-bet-actions">
-                        <button onClick={() => this.props.getReceipt()}>Place Bet</button>
-                    </div>
+                    <BetSlipInputForm selections={this.props.selections} getReceipt={this.props.getReceipt} placeBet={this.props.placeBet}/>
                     <div className="betslip-footer__sub__clearslip">
                         <a type="button" className="clear" onClick={() => this.props.clearBets()}>Clear Bet Slip</a>
                     </div>
@@ -75,18 +72,6 @@ class BetSlipReceipt extends Component {
             </div>
         );
     }
-}
-
-class ContactPage extends React.Component {
-  submit(values){
-    // Do something with the form values
-    console.log(values);
-  }
-  render() {
-    return (
-      <ContactForm onSubmit={this.submit} selections={this.props.selections} getReceipt={this.props.getReceipt} submitBet={this.props.submitBet}/>
-    );
-  }
 }
 
 export default Betslip;

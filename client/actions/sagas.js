@@ -67,9 +67,8 @@ export function * doFetchPosts() {
 
 
 export function * placeBetGetReceipt() {
-  console.log("placeBetGetReceipt Saga")
-  const betStake = yield call(fetchBetStakes, 'betStake');
-  yield put(actions.enableReceipt(betStake));
+//  console.log("placeBetGetReceipt Saga")
+  yield put(actions.enableReceipt());
   yield put(actions.disableBetSlip());
   yield put(actions.clearBets());
 }
