@@ -13,9 +13,10 @@ const clearBets = () => ({
     type: 'CLEAR_ALL_SELECTIONS'
 });
 
-const placeBet = (betStake) => ({
+const placeBet = (betStake, selections) => ({
     type: 'PLACE_BET',
-    betStake
+    betStake,
+    selections
 });
 
 const enableReceipt = () => ({

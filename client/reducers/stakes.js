@@ -3,8 +3,11 @@ export default function(state = [], action) {
         case 'PLACE_BET':
             return [
                 ...state, {
-                betStake: action.betStake
-              }
+                    betStake: {
+                        stakes: action.betStake,
+                        selections: action.selections
+                    }
+                }
             ]
         default:
             return state;
