@@ -24,11 +24,7 @@ class CenterTabs extends React.Component {
                                                 {Object.keys(this.state.events).map(key =>
                                                   <Event key={key}
                                                     details={this.state.events[key]}
-                                                    getSelection={this.props.getSelection}
-                                                    removeSelection={this.props.removeSelection}
-                                                    selections={this.props.selections}
-                                                    betslip={this.props.betslip}
-                                                    disableReceipt={this.props.disableReceipt}/>)}
+                                                    {...this.props}/>)}
                                             </section>
                                         </div>
                                     </div>
@@ -51,7 +47,7 @@ class Event extends React.Component {
                     <div className="market_content">
                         <ul className="btmarket__content-marginrs">
                             <li>
-                                <a title={details.name} className="market_name" href="/TODO">
+                                <a title={details.name} className="market_name">
                                     <div className="market_link-name">
                                         <span>{details.nameTeam1}</span>
                                         <span>{details.nameTeam2}</span>
@@ -64,11 +60,7 @@ class Event extends React.Component {
                       <Market
                         key={i}
                         market={market}
-                        getSelection={this.props.getSelection}
-                        removeSelection={this.props.removeSelection}
-                        selections={this.props.selections}
-                        betslip={this.props.betslip}
-                        disableReceipt={this.props.disableReceipt}/>)}
+                        {...this.props}/>)}
                 </div>
             </div>
         )
@@ -84,11 +76,8 @@ const Market = React.createClass({
                   <Selection
                     key={i}
                     selection={selection}
-                    getSelection={this.props.getSelection}
-                    removeSelection={this.props.removeSelection}
-                    selections={this.props.selections}
-                    betslip={this.props.betslip}
-                    disableReceipt={this.props.disableReceipt}/>)}
+                    {...this.props}
+                    />)}
             </div>
         )
     }
@@ -150,11 +139,11 @@ class Selection extends React.Component {
     }
 }
 
-function Sport(props) {
+const Sport = ({sport}) => {
     return (
         <div className="sport-container">
             <header className="header-dropdown">
-                <h2 className="fl">{props.sport}</h2>
+                <h2 className="fl">{sport}</h2>
                 <div className="header_side">
                     <aside className="header_toolbar">
                         <a href="#" className="button-clear">
