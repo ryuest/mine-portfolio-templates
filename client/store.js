@@ -6,8 +6,6 @@ import actions from './actions/actionCreators';
 
 // import all reducers
 import rootReducer from './reducers/index';
-// initial data
-import comments from './data/comments';
 
 //saga
 import createSagaMiddleware from 'redux-saga';
@@ -15,12 +13,7 @@ import rootSaga from './actions/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
-// create an object for the default data
-const defaultState = {
-  comments
-};
-
-const store = createStore(rootReducer, defaultState, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
 sagaMiddleware.run(rootSaga);
 

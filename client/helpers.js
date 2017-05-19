@@ -2,23 +2,38 @@ export function formatPrice(cents) {
   return `$${(cents / 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
 }
 
-export function rando(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
+export function toReturn(stake, price) {
+    return ((Number(stake) * eval(price)) + Number(stake)).toFixed(2)
 }
 
-export function slugify(text) {
-  return text.toString().toLowerCase()
-    .replace(/\s+/g, '-')           // Replace spaces with -
-    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-    .replace(/^-+/, '')             // Trim - from start of text
-    .replace(/-+$/, '');            // Trim - from end of text
-}
+export function showBetTime() {
+    const date = new Date();
+    // gets the hours
+    var hours = date.getHours();
+    // gets the day
+    var days = date.getDay();
+    // gets the month
+    var minutes = date.getMinutes();
+    // gets AM/PM
+    var ampm = hours >= 12
+        ? 'pm'
+        : 'am';
+    // converts hours to 12 hour instead of 24 hour
+    hours = hours % 12;
+    // converts 0 (midnight) to 12
+    hours = hours
+        ? hours
+        : 12; // the hour '0' should be '12'
+    // converts minutes to have leading 0
+    minutes = minutes < 10
+        ? '0' + minutes
+        : minutes;
+    // the time string
+    var time = hours + ':' + minutes + ' ' + ampm;
+    // gets the match for the date string we want
+    var match = date.toString().match(/\w{3} \w{3} \d{1,2} \d{4}/);
+    //the result
+    return match[0] + ' ' + time;
 
-export function getFunName() {
-  const adjectives = ['adorable', 'beautiful', 'clean', 'drab', 'elegant', 'fancy', 'glamorous', 'handsome', 'long', 'magnificent', 'old-fashioned', 'plain', 'quaint', 'sparkling', 'ugliest', 'unsightly', 'angry', 'bewildered', 'clumsy', 'defeated', 'embarrassed', 'fierce', 'grumpy', 'helpless', 'itchy', 'jealous', 'lazy', 'mysterious', 'nervous', 'obnoxious', 'panicky', 'repulsive', 'scary', 'thoughtless', 'uptight', 'worried'];
-
-  const nouns = ['women', 'men', 'children', 'teeth', 'feet', 'people', 'leaves', 'mice', 'geese', 'halves', 'knives', 'wives', 'lives', 'elves', 'loaves', 'potatoes', 'tomatoes', 'cacti', 'foci', 'fungi', 'nuclei', 'syllabuses', 'analyses', 'diagnoses', 'oases', 'theses', 'crises', 'phenomena', 'criteria', 'data'];
-
-  return `${rando(adjectives)}-${rando(adjectives)}-${rando(nouns)}`;
+    return betTime;
 }

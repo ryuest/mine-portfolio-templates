@@ -22,9 +22,7 @@ class BetSlipForm extends Component {
                     })}>Place Bet</button>
                 </div>
             </form>
-        );
-    }
-}
+        )}}
 
 class BetSlipSelection extends Component {
 
@@ -43,10 +41,10 @@ class BetSlipSelection extends Component {
         }}) {
         return (
             <div>
-                <Input placeholder="£0.00" {...input}/>
+                <Input placeholder="🎣 0.00" {...input} autoComplete="new-bet" />
             </div>
-        );
-    }
+        )}
+
     render() {
         return (
             <div id={"single-bet_" + this.props.selection.selection.id} className="betslip-selection">
@@ -58,7 +56,7 @@ class BetSlipSelection extends Component {
                 </div>
                 <div className="betslip-selection_stake">
                     <span className="betslip-selection_input">
-                        <Field name={this.props.i}
+                        <Field name={""+this.props.i}
                                type="text"
                                component={this.renderInput}
                                selection={this.props.selection}
@@ -75,9 +73,7 @@ class BetSlipSelection extends Component {
                     </div>
                 </div>
             </div>
-        );
-    }
-}
+        )}}
 
 BetSlipForm = reduxForm({
     form: 'contact', // a unique identifier for this form

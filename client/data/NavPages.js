@@ -1,20 +1,14 @@
 const pages = {
   page1: {
-    name: 'Homepage2',
-    href: 'http://google.com',
-    id: 'nav-homepage'
+    name: 'Sportsbook',
+    href: '/',
+    id: 'nav-sportsbook-homepage'
   },
 
   page2: {
-    name: 'InPlay',
-    href: 'https://ryuest.github.io',
-    id: 'nav-in-play'
-  },
-
-  page3: {
-    name: 'Search',
-    href: 'http://www.uefa.com',
-    id: 'nav-search'
+    name: 'Games',
+    href: '/games',
+    id: 'nav-games'
   }
 };
 

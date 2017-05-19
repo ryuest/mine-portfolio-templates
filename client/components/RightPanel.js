@@ -1,20 +1,6 @@
 import React from 'react';
-import Game from '../simpleTests/game';
 import store from '../store';
 import Betslip from './Betslip';
-
-class Likes extends React.Component {
-    render() {
-        return (
-            <div className="sport-container">
-                <header className="header-dropdown">
-                    <h2 className="fl">{this.props.posts[0].likes}</h2>
-                    <button onClick={() => this.props.log()} className="likes">&hearts; {this.props.posts[0].likes}</button>
-                </header>
-            </div>
-        )
-    }
-}
 
 class RightPanel extends React.Component {
     constructor() {
@@ -55,17 +41,8 @@ render() {
                                placeBet={this.props.placeBet}
                                stakes={this.props.stakes}/> : null }
                 </div>
-                <div className="fb_tutorial">
-                    <Game/>
-                </div>
-                <div className="photo-grid">
-                    <Likes
-                      log={this.props.log}
-                      posts={this.props.posts}/>
-                </div>
             </div>
         </div>
-    )
-}
-}
+    )}}
+    
 export default RightPanel;

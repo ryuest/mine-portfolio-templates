@@ -8,7 +8,6 @@ import {
 } from 'redux-saga/effects';
 
 import {takeLatest, delay, takeEvery} from 'redux-saga';
-//import {fetchFirebase} from '../components/App'
 import firebase from 'firebase';
 import {firebaseConfig} from '../data/baseConfig';
 import actions from './actionCreators';
@@ -28,7 +27,6 @@ export const fetchFirebase = (path) => {
 };
 
 export const fetchBetStakes = (path) => {
-
   return betStakes
 };
 
@@ -50,7 +48,6 @@ function* incrementSaga() {
   yield call(delay, 1000)
   yield put(actions.increment(0));
 }
-
 
 function* log() {
   console.log("watchIncrementAsync LOG")
