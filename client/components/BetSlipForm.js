@@ -4,24 +4,15 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Input, Button, Message} from 'semantic-ui-react';
 
-class ContactForm extends Component {
-    //  this.props.getReceipt(data)
+class BetSlipForm extends Component {
+
     placeBetGetReceipt(data, selections) {
         this.props.placeBet(data, selections)
         this.props.getReceipt()
     }
 
     render() {
-
-        const {
-            fields: {
-                firstName,
-                lastName,
-                email
-            },
-            handleSubmit,
-            selections
-        } = this.props;
+        const {handleSubmit, selections} = this.props;
         return (
             <form >
                 {Object.keys(selections).map((key, i) => (<BetSlipSelection key={key} i={i} selection={selections[key]}/>))}
@@ -35,22 +26,27 @@ class ContactForm extends Component {
     }
 }
 
-//   <button type="submit">Submit</button>
 class BetSlipSelection extends Component {
 
-    renderInput({
-        input,
-        selection: {
+    constructor() {
+      super()
+      this.state = {winTotal:0}
+    }
+
+    onUpdateWinTotal(e, price) {
+      var winTotal = ((Number(e.target.value)*eval(price))+Number(e.target.value)).toFixed(2)
+      this.setState( {winTotal:winTotal})
+    }
+
+    renderInput({input, selection: {
             selection
-        }
-    }) {
+        }}) {
         return (
             <div>
                 <Input placeholder="£0.00" {...input}/>
             </div>
         );
     }
-
     render() {
         return (
             <div id={"single-bet_" + this.props.selection.selection.id} className="betslip-selection">
@@ -62,7 +58,11 @@ class BetSlipSelection extends Component {
                 </div>
                 <div className="betslip-selection_stake">
                     <span className="betslip-selection_input">
-                        <Field name={"betStake_" + this.props.i} type="text" component={this.renderInput} selection={this.props.selection}/>
+                        <Field name={this.props.i}
+                               type="text"
+                               component={this.renderInput}
+                               selection={this.props.selection}
+                               onChange={e => this.onUpdateWinTotal(e, this.props.selection.selection.price)}/>
                     </span>
                 </div>
                 <div className="betslip-footer__totals">
@@ -70,8 +70,7 @@ class BetSlipSelection extends Component {
                         <div className="betslip-footer__to-return-label">
                             To return:
                             <span className="betslip-footer__total-stake-price">
-                                {this.props.selection.selection.price}
-                                2.03</span>
+                                {this.state.winTotal}</span>
                         </div>
                     </div>
                 </div>
@@ -80,9 +79,8 @@ class BetSlipSelection extends Component {
     }
 }
 
-ContactForm = reduxForm({
+BetSlipForm = reduxForm({
     form: 'contact', // a unique identifier for this form
-    fields: ['firstName', 'lastName', 'email']
-})(ContactForm)
+})(BetSlipForm)
 
-export default ContactForm;
+export default BetSlipForm;
