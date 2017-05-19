@@ -11,17 +11,17 @@ const events = {
                     id: 'OB_MA462318244',
                     selections: [
                         {
-                            name: 'QPR U23',
+                            name: 'win QPR U23',
                             id: 'OB_OU1502959911',
                             price: '4/7',
                             eventName: 'QPR U23 vs Hull City U23'
                         }, {
-                            name: 'draw',
+                            name: 'draw QPR U23 vs Hull City U23',
                             id: 'OB_OU1502959922',
                             price: '29/10',
                             eventName: 'QPR U23 vs Hull City U23'
                         }, {
-                            name: 'Hull City U23',
+                            name: 'win Hull City U23',
                             id: 'OB_OU1502959933',
                             price: '9/2',
                             eventName: 'QPR U23 vs Hull City U23'
@@ -44,17 +44,17 @@ const events = {
                     id: 'OB_MA462318244',
                     selections: [
                         {
-                            name: 'Real Madrid U23',
+                            name: 'win Real Madrid U23',
                             id: 'OB_OU1502959977',
                             price: '3/7',
                             eventName: 'Real Madrid U23 vs Barcelona FC U23'
                         }, {
-                            name: 'draw',
+                            name: 'draw Real Madrid U23 vs Barcelona FC U23',
                             id: 'OB_OU1502959988',
                             price: '15/22',
                             eventName: 'Real Madrid U23 vs Barcelona FC U23'
                         }, {
-                            name: 'Barcelona FC U23',
+                            name: 'win Barcelona FC U23',
                             id: 'OB_OU1502959999',
                             price: '5/4',
                             eventName: 'Real Madrid U23 vs Barcelona FC U23'
@@ -77,17 +77,17 @@ const events = {
                     id: 'OB_MA462318244',
                     selections: [
                         {
-                            name: 'Manchester U23',
+                            name: 'win Manchester U23',
                             id: 'OB_OU1502959900',
                             price: '1/7',
                             eventName: 'Manchester U23 vs Liverpool City U23'
                         }, {
-                            name: 'draw',
+                            name: 'draw Manchester U23 vs Liverpool City U23',
                             id: 'OB_OU1502959912',
                             price: '49/10',
                             eventName: 'Manchester U23 vs Liverpool City U23'
                         }, {
-                            name: 'Manchester City U23',
+                            name: 'win Manchester City U23',
                             id: 'OB_OU1502959913',
                             price: '19/2',
                             eventName: 'Manchester U23 vs Liverpool City U23'

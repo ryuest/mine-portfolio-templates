@@ -8,7 +8,8 @@ class Selection extends React.Component {
     super();
     this.state = {
      isSelected: false,
-     isCleared: false
+     isCleared: false,
+     colorGreen: false
    }
   }
 
@@ -17,7 +18,7 @@ class Selection extends React.Component {
     //  selection.isSelected = true
       this.setState({
         isSelected: true,
-        isCleared: false
+        colorGreen: true
       });
   //    console.log('GOnna make some ADD selection! 🎣' + selection.id + selection.isSelected);
       this.props.getSelection(selection)
@@ -26,7 +27,8 @@ class Selection extends React.Component {
       }
     } else {
       this.setState({
-        isSelected: false
+        isSelected: false,
+        colorGreen: false
       });
     //  console.log('GOnna make some REMOVE selection! 🎣' + selection.id + selection.isSelected); //
       this.props.removeSelection(selection)
@@ -36,7 +38,8 @@ class Selection extends React.Component {
   clearSelected() {
     if (this.state.isSelected) {
     this.setState({
-      isSelected: false
+      isSelected: false,
+      colorGreen: false
     });
       }
   }
@@ -47,14 +50,14 @@ class Selection extends React.Component {
       this.clearSelected()
     }
   }
-
+//style={this.state.isSelected && !this.state.isCleared ? {background: '#36EA4C'} : {background: '#D6DCD7'}}
 
   render() {
     const {selection} = this.props;
     return (
       <div className="market_selection">
         <button onClick={() => this.addToSelectedList(selection)}
-          style={this.state.isSelected && !this.state.isCleared ? {background: '#36EA4C'} : {background: '#D6DCD7'}}
+          style={this.state.colorGreen ? {background: '#36EA4C'} : {background: '#D6DCD7'}}
           id={selection.id} className="betbutton" data-displayed="data-displayed2 from JSON"
           data-status="data-status from JSON">
           <span className="betbutton_odds">{selection.price}</span>

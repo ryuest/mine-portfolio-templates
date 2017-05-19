@@ -27,6 +27,11 @@ export const fetchFirebase = (path) => {
     return database.ref(resolvedPath).once('value').then((snapshot) => snapshot.val());
 };
 
+export const fetchBetStakes = (path) => {
+
+  return betStakes
+};
+
 // Our worker Saga: will perform the async increment task
 function* incrementAsync() {
   console.log("incrementAsync")
@@ -62,17 +67,23 @@ export function * doFetchPosts() {
 
 
 export function * placeBetGetReceipt() {
-  console.log("placeBetGetReceipt Saga")
+//  console.log("placeBetGetReceipt Saga")
   yield put(actions.enableReceipt());
   yield put(actions.disableBetSlip());
   yield put(actions.clearBets());
 }
+/*
+function* inputFormSaga () {
+  console.log("inputFormSaga")
+}
+*/
 
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
   yield [
     takeLatest('FETCH_POSTS', doFetchPosts),
     takeLatest('GET_RECEIPT', placeBetGetReceipt),
+//    takeLatest('INPUT_FORM_SUBMIT', inputFormSaga),
     log()
   ]
 }

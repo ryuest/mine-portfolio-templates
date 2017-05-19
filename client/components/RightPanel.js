@@ -51,7 +51,9 @@ render() {
                                clearBets={this.props.clearBets}
                                getReceipt={this.props.getReceipt}
                                betslip={this.props.betslip}
-                               disableReceipt={this.props.disableReceipt}/> : null }
+                               disableReceipt={this.props.disableReceipt}
+                               placeBet={this.props.placeBet}
+                               stakes={this.props.stakes}/> : null }
                 </div>
                 <div className="fb_tutorial">
                     <Game/>

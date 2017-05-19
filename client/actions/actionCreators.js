@@ -13,6 +13,12 @@ const clearBets = () => ({
     type: 'CLEAR_ALL_SELECTIONS'
 });
 
+const placeBet = (betStake, selections) => ({
+    type: 'PLACE_BET',
+    betStake,
+    selections
+});
+
 const enableReceipt = () => ({
     type: 'ENABLE_RECEIPT'
 });
@@ -37,7 +43,6 @@ const increment = (likes) => ({
     type: 'INCREMENT_LIKES',
     likes
 });
-
 
 const log = () => ({
     type: 'LOG'
@@ -67,7 +72,9 @@ const fetchedPostsKeys = (posts) => ({
     data: { posts },
 });
 
-
+const submitBet = () => ({
+      type: 'INPUT_FORM_SUBMIT'
+});
 
 
 
@@ -75,7 +82,7 @@ export default {
     increment,
     fetchPosts,
     fetchedPostsKeys,
-    enableReceipt,
+    placeBet,
     enableBetSlip,
     disableBetSlip,
     getSelection,
@@ -83,9 +90,8 @@ export default {
     clearBets,
     enableReceipt,
     disableReceipt,
-    enableBetSlip,
-    disableBetSlip,
     getReceipt,
-    log
+    log,
+    submitBet
 
 };

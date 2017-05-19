@@ -14,7 +14,7 @@ export default function(state = [], action) {
             return {
                 ...state,
                 receipt: true
-            }
+              }
 
         case 'DISABLE_RECEIPT':
             return {

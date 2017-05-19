@@ -16,7 +16,8 @@ function mapDispachToProps(dispatch) {
 const mapStateToProps = (state) => ({
     posts: selectorsPost.getPosts(state.posts),
     selections: state.selections,
-    betslip: state.betslip
+    betslip: state.betslip,
+    stakes: state.stakes
 });
 /*
 const mapDispachToProps = (dispatch) => ({
