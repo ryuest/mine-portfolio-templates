@@ -4,12 +4,12 @@ import GameXO from '../simpleTests/gameXO';
 class Game extends Component {
 render() {
     return (
-      <div>
+      <div className="examples">
         <h3>Details for: TO-DO</h3>
-        <div className="fb_tutorial">
+        <div className="example">
             <GameXO/>
         </div>
-        <div className="photo-grid">
+        <div className="example">
             <Likes
               log={this.props.log}
               posts={this.props.posts}/>
@@ -24,7 +24,7 @@ class Likes extends React.Component {
         return (
             <div className="sport-container">
                 <header className="header-dropdown">
-                    <h2 className="fl">{this.props.posts[0].likes}</h2>
+                    <h2 className="fl">Likes</h2>
                     <button onClick={() => this.props.log()} className="likes">&hearts; {this.props.posts[0].likes}</button>
                 </header>
             </div>

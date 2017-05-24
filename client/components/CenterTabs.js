@@ -144,14 +144,6 @@ const Sport = ({sport}) => {
         <div className="sport-container">
             <header className="header-dropdown">
                 <h2 className="fl">{sport}</h2>
-                <div className="header_side">
-                    <aside className="header_toolbar">
-                        <a href="#" className="button-clear">
-                            <i className="icon-arrow-up-slim if-expanded"></i>
-                            <i className="icon-arrow-down-slim if-collapsed"></i>
-                        </a>
-                    </aside>
-                </div>
             </header>
         </div>
     )

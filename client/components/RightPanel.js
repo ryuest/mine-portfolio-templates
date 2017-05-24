@@ -33,16 +33,10 @@ render() {
                         </ul>
                     </nav>
                     {this.state.isSelected || this.state.isReceipt > 0 ?
-                      <Betslip selections={this.props.selections}
-                               clearBets={this.props.clearBets}
-                               getReceipt={this.props.getReceipt}
-                               betslip={this.props.betslip}
-                               disableReceipt={this.props.disableReceipt}
-                               placeBet={this.props.placeBet}
-                               stakes={this.props.stakes}/> : null }
+                      <Betslip {...this.props}/> : null }
                 </div>
             </div>
         </div>
     )}}
-    
+
 export default RightPanel;

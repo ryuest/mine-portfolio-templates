@@ -16,7 +16,7 @@ class Betslip extends Component {
                 <div id="bets-container-singles">
                     <BetSlipForm selections={this.props.selections} getReceipt={this.props.getReceipt} placeBet={this.props.placeBet}/>
                     <div className="betslip-footer__sub__clearslip">
-                        <a type="button" className="clear" onClick={() => this.props.clearBets()}>Clear Bet Slip</a>
+                        <a type="button" className="clear" onClick={() => this.props.clearBets()}>Clear Betslip</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@ class Betslip extends Component {
     render() {
         this.state.isReceipt = this.props.betslip.receipt
         return (
-            <div id="betslip-wrapper">
+            <div className="betslip-selections-wrapper">
                 {this.state.isReceipt > 0
                     ? <BetSlipReceipt disableReceipt={this.props.disableReceipt} stakes={this.props.stakes}/>
                     : this.renderBetSlipWrapper()}

@@ -6,6 +6,7 @@ body
  color #222
  font-family Arial,Helvetica,"Helvetica Neue",sans-serif
  font-size 16px
+ background: #d9d9d9;
 
 a
  color: #248CB3;
@@ -15,14 +16,15 @@ a
 h1
  font-weight 700
 
-h2
+.fl h2
  display block
+ padding-right: 10px;
  font-size 1.5em
  font-weight bold
  -webkit-margin-before 0.83em
  -webkit-margin-after 0.83em
- -webkit-margin-start 0px
- -webkit-margin-end 0px
+ -webkit-margin-start 2px
+ -webkit-margin-end 2px
 
 h3
  display block
@@ -36,7 +38,7 @@ h3
 fl
  float left
 
-aside, div, header, a, i, h1, h2, h3, h4, h5, h6, p, section, nav, span, ul, li, ol
+aside, div, header, a, i, p, section, nav, span, ul, li, ol
  margin 0
  padding 0
  border 0
@@ -46,9 +48,6 @@ aside, div, header, a, i, h1, h2, h3, h4, h5, h6, p, section, nav, span, ul, li,
 
 aside, div, footer, header, main, menu, nav, section
  display: block;
-
-*, :after, :before
- box-sizing border-box
 
 li
  display: list-item;
@@ -96,8 +95,11 @@ html
 .off-canvas_inner-wrapper
  display flex
  height calc(100vh - 56px)
- justify-content flex-start
- margin 56px auto 0
+ justify-content: flex-start
+ margin-top: 56px;
+ margin-right: auto;
+ margin-bottom: 56px;
+ margin-left: auto;
  max-width 1440px
  overflow: hidden;
  position: relative;
@@ -113,8 +115,6 @@ html
  padding-left: 12px;
  background blue
  flex-grow: 1;
- flex-shrink: 0;
- flex-basis: 292px;
 
 .off-canvas_main
  width: calc(100% - 584px);
@@ -123,19 +123,28 @@ html
  position: relative;
  float: left;
  margin-left: 20px
- background red
+ margin-right: 20px
+ flex-basis: fit-content
+ background #EDEDED
+
+.markets-group-container div
+ margin-left: 2px
+ margin-right: 2px
 
 .off-canvas_right
  float: left;
  position: relative;
  left: 0;
- max-width: 280px;
+ max-width: 220px;
  width: auto;
+ overflow-y: auto;
  padding-left: 12px;
+ padding-right: 178px;
  background blue
- flex-grow: 1;
- flex-shrink: 0;
- flex-basis: 292px;
+ flex-grow: 0;
+
+.ui
+ right: 10px
 
 .betslipwrapper
  background: #FFF;
@@ -143,9 +152,9 @@ html
  overflow-y: auto;
  border-left: none;
  height: auto;
- position: fixed;
- top: 56px;
- width: 280px;
+ position: relative;
+ top: 12px;
+ width: 198px;
  margin-bottom: 12px;
 
 .betslip-container
@@ -163,6 +172,12 @@ html
  font-size: 12px;
  overflow: auto;
  text-align: center;
+
+.betslip-selections-wrapper
+ position: relative;
+ padding-right: 10px;
+ padding-bottom: 10px;
+ padding-left: 10px;
 
 .betslip-navigation_menu
  align-items: stretch;
@@ -193,13 +208,12 @@ html
 .left-nav
  list-style: none;
  margin-left: 0;
+ top: 12px;
+ right: 12px;
  margin-bottom: 12px;
- position: fixed;
- bottom: 0;
- top: 56px;
  font-size: 14px;
- width: 280px;
  overflow-y: auto;
+ position: relative;
 
 .tabs_panels
  position relative
@@ -231,7 +245,6 @@ html
  font-size .75em
 
 .header-dropdown
- cursor pointer
  position relative
  width 100%
  background-color #007ac0
@@ -239,33 +252,9 @@ html
  display table
  height 3.33333em
  margin-bottom 1px
- line-height 14px
- font-weight 700
- padding 0 .66667em
- display table-cell
- vertical-align middle
- float none
- font-size 14px
-
-.header_side
- float right
  padding-left .75em
  padding-right .75em
- width auto
- text-align right
- font-size 0
- min-width 0
-
-.header_toolbar
- align-items center
- border-radius 0
- height 3.25em
- width 3.33333em
- padding 0
- min-width: 1000px
-
-.button-clear
- position relative
+ font-size 14px
 
 .icon, [class*=" icon-"], [class^=icon-]
  font-family whIconFont
@@ -388,28 +377,21 @@ html
  background: #fff;
  border: 1px solid #999;
  float: left;
- font-size: 24px;
+ font-size: 44px;
  font-weight: bold;
- line-height: 34px;
- height: 34px;
+ line-height: 54px;
+ height: 54px;
  margin-right: -1px;
  margin-top: -1px;
  padding: 0;
  text-align: center;
- width: 34px;
+ width: 54px;
 
 .square:focus
  outline: none;
 
 .kbd-navigation .square:focus
  background: #ddd;
-
-.game
- display: flex;
- flex-direction: row;
-
-.game-info
- margin-left: 20px;
 
 .betslip-selection
  margin: 0;
@@ -454,11 +436,11 @@ html
  margin: 0
 
 .betslip-footer__sub__clearslip a
- margin: 0;
+ margin-top: 25px;
  padding: 0;
  border: 0;
  font: inherit;
- font-size: 100%;
+ font-size: 150%;
  vertical-align: baseline;
 
 .betslip-bet-actions button
@@ -645,3 +627,15 @@ html
  line-height: 1;
  position: absolute;
  right: 8px;
+
+.examples h3
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin-top: 20%;
+
+.examples .example
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin-top: 10px;
