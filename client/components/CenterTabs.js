@@ -33,7 +33,24 @@ class CenterTabs extends React.Component {
                         </span>
                     </section>
                 </div>
+                <div>
+                  <form>
+      <div>
+        <input id="email" type="text" placeholder="Email..."/>
+      </div>
+      <div>
+        <input id="password" type="password" placeholder="Password..."/>
+      </div>
+      <div>
+        <button id="sign-in">Sign In/Register</button>
+        <button id="sign-out">Sign Out</button>
+      </div>
+    </form>
+
+                </div>
             </div>
+
+
         )
     }
 }
