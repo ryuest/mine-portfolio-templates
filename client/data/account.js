@@ -1,5 +1,5 @@
 import React from 'react';
-import {firebaseAuth, ref} from '../actions/sagas'
+import {firebaseAuth} from './baseConfig'
 import Login from './Login'
 
 class Account extends React.Component {
@@ -20,35 +20,42 @@ class Account extends React.Component {
             }
         })
     }
-    componentWillUnmount() {
-        this.removeListener()
-    }
 
     render() {
-        <div className="container">
-          
-        </div>
-      }
+        return (
+            <div className="container">
+                <ul className="nav navbar-nav pull-right">
+                    <li>
+                        {this.state.authed
+                            ? <button style={{
+                                    border: 'none',
+                                    background: 'transparent'
+                                }} onClick={() => {
+                                    logout()
+                                }} className="navbar-brand">Logout</button>
+                            : <button style={{
+                                border: 'none',
+                                background: 'transparent'
+                            }} onClick={() => {
+                                console.log("dsds")
+                            }} className="navbar-brand">Login</button>}
+                    </li>
+                </ul>
+            </div>
+        )
+    }
 }
 
 export function auth(email, pw) {
-return firebaseAuth().createUserWithEmailAndPassword(email, pw).then(saveUser)
+    return firebaseAuth().createUserWithEmailAndPassword(email, pw).then(saveUser)
 }
 
 export function logout() {
-return firebaseAuth().signOut()
+    return firebaseAuth().signOut()
 }
 
 export function login(email, pw) {
-return firebaseAuth().signInWithEmailAndPassword(email, pw)
-}
-
-export function resetPassword(email) {
-return firebaseAuth().sendPasswordResetEmail(email)
-}
-
-export function saveUser(user) {
-return ref.child(`users/${user.uid}/info`).set({email: user.email, uid: user.uid}).then(() => user)
+    return firebaseAuth().signInWithEmailAndPassword(email, pw)
 }
 
 export default Account;
