@@ -13,10 +13,15 @@ import {firebaseConfig} from '../data/baseConfig';
 import actions from './actionCreators';
 
 let database;
+let ref;
+let firebaseAuth;
+
 export const fetchFirebase = (path) => {
     if (database === undefined) {
         firebase.initializeApp(firebaseConfig);
         database = firebase.database();
+        ref = firebase.database().ref()
+        firebaseAuth = firebase.auth
     }
 
     let resolvedPath = path;

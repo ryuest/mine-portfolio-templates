@@ -1,5 +1,6 @@
 import React from 'react';
 import events from '../data/events';
+import Account from '../data/account'
 
 class CenterTabs extends React.Component {
     constructor() {
@@ -45,6 +46,7 @@ class CenterTabs extends React.Component {
         <button id="sign-in">Sign In/Register</button>
         <button id="sign-out">Sign Out</button>
       </div>
+      <Account />
     </form>
 
                 </div>
