@@ -8,24 +8,16 @@ import {
 } from 'redux-saga/effects';
 
 import {takeLatest, delay, takeEvery} from 'redux-saga';
-//import firebase from 'firebase';
 import {database} from '../data/baseConfig';
 import actions from './actionCreators';
 
-//let database;
-//let ref;
-//let firebaseAuth;
-
-
 
 export const fetchFirebase = (path) => {
-  //  if (database === undefined) {
-    //    firebase.initializeApp(firebaseConfig);
-    //    database = firebase.database();
-    //    ref = firebase.database().ref()
-    //    firebaseAuth = firebase.auth
-//    }
-
+/*    if (database === undefined) {
+        firebase.initializeApp(firebaseConfig);
+        database = firebase.database();
+    }
+*/
     let resolvedPath = path;
     if (resolvedPath instanceof Array) {
         resolvedPath = path.join('/');
@@ -39,25 +31,21 @@ export const fetchBetStakes = (path) => {
 
 // Our worker Saga: will perform the async increment task
 function* incrementAsync() {
-  console.log("incrementAsync")
   yield call(delay, 1000)
   yield put({ type: 'INCREMENT' })
 }
 
 function* watchIncrementAsync() {
-  console.log("watchIncrementAsync")
   incrementAsync()
   yield* takeEvery('INCREMENT_ASYNC', incrementAsync)
 }
 
 function* incrementSaga() {
-  console.log("incrementSaga log")
   yield call(delay, 1000)
   yield put(actions.increment(0));
 }
 
 function* log() {
-  console.log("watchIncrementAsync LOG")
   incrementSaga()
   yield* takeEvery('LOG', incrementSaga)
 }
@@ -76,18 +64,12 @@ export function * placeBetGetReceipt() {
   yield put(actions.disableBetSlip());
   yield put(actions.clearBets());
 }
-/*
-function* inputFormSaga () {
-  console.log("inputFormSaga")
-}
-*/
 
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
   yield [
     takeLatest('FETCH_POSTS', doFetchPosts),
     takeLatest('GET_RECEIPT', placeBetGetReceipt),
-//    takeLatest('INPUT_FORM_SUBMIT', inputFormSaga),
     log()
   ]
 }

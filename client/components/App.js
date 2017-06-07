@@ -2,6 +2,7 @@ import React from 'react';
 import LeftMenuPageItem from './LeftMenuPageItem';
 import CenterTabs from './CenterTabs';
 import RightPanel from './RightPanel';
+import Account from './Account'
 
 class App extends React.Component {
     render() {
@@ -13,7 +14,9 @@ class App extends React.Component {
                             <ul className="c-list-icon">
                                 {Object.keys(this.props.pages).map(key => <LeftMenuPageItem key={key} details={this.props.pages[key]}/>)}
                                 <li className="c-list_item">
-                                    <a className="c-list_external" href="https://github.com/ryuest/mine-portfolio-templates" title="GitHub" id="nav-github">GitHub
+                                    <a className="c-list_external"
+                                      href="https://github.com/ryuest/mine-portfolio-templates"
+                                      title="GitHub" id="nav-github">GitHub
                                     </a>
                                 </li>
                             </ul>
@@ -27,7 +30,7 @@ class App extends React.Component {
                       removeSelection={this.props.removeSelection}
                       betslip={this.props.betslip}
                       disableReceipt={this.props.disableReceipt}/>
-
+                      <Account/>
                 </div>
                 <div className="off-canvas_right">
                     <RightPanel

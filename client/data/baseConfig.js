@@ -1,8 +1,3 @@
-//export const firebaseConfig = {
-
-//};
-
-
 import firebase from 'firebase'
 
 const config = {

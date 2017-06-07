@@ -1,4 +1,3 @@
-
 const getSelection = (selection) => ({
     type: 'ADD_SELECTION',
     selection
@@ -48,21 +47,6 @@ const log = () => ({
     type: 'LOG'
 });
 
-// add comments
-const addComent = (postId, author, comment) => ({
-    type: 'ADD_COMMENT',
-    postId,
-    author,
-    comment
-});
-
-// remove commnent
-const removeComment = (postId, i) => ({
-    type: 'REMOVE_COMMENT',
-    i,
-    postId
-});
-
 const fetchPosts = () => ({
     type: 'FETCH_POSTS',
 });
@@ -93,5 +77,4 @@ export default {
     getReceipt,
     log,
     submitBet
-
 };

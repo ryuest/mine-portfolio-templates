@@ -35,18 +35,6 @@ export default function(state = [], action) {
     }
 }
 
-function clearBets(state) {
-    var list = state;
-    const size = list.length
-    console.log(list)
-    while (list.length > 0) {
-        list.slice(0, 1);
-    }
-
-    console.log(list)
-    return list
-}
-
 function shouldUpdate(state, id) {
     let found = false
     if (state.length > 0) {

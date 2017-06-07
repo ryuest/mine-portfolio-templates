@@ -20,5 +20,3 @@ ReactDOM.render(
   router,
   document.getElementById('root')
 );
-
-//store.subscribe(App)

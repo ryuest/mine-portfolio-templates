@@ -1,6 +1,7 @@
 import React from 'react';
-import {firebaseAuth} from './baseConfig'
+import {ref, firebaseAuth} from '../data/baseConfig'
 import Login from './Login'
+import Register from './Register'
 
 class Account extends React.Component {
     constructor() {
@@ -23,9 +24,7 @@ class Account extends React.Component {
 
     render() {
         return (
-            <div className="container">
-                <ul className="nav navbar-nav pull-right">
-                    <li>
+            <div className="account-container">
                         {this.state.authed
                             ? <button style={{
                                     border: 'none',
@@ -33,14 +32,11 @@ class Account extends React.Component {
                                 }} onClick={() => {
                                     logout()
                                 }} className="navbar-brand">Logout</button>
-                            : <button style={{
-                                border: 'none',
-                                background: 'transparent'
-                            }} onClick={() => {
-                                console.log("dsds")
-                            }} className="navbar-brand">Login</button>}
-                    </li>
-                </ul>
+                            : <div className="account-row">
+                <Login authed={this.state.authed} />
+                <Register authed={this.state.authed} />
+            </div>}
+
             </div>
         )
     }
@@ -56,6 +52,15 @@ export function logout() {
 
 export function login(email, pw) {
     return firebaseAuth().signInWithEmailAndPassword(email, pw)
+}
+
+export function saveUser (user) {
+  return ref.child(`users/${user.uid}/info`)
+    .set({
+      email: user.email,
+      uid: user.uid
+    })
+    .then(() => user)
 }
 
 export default Account;
