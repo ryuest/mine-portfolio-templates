@@ -3,10 +3,8 @@
   "version": "0.0.1",
   "description": ":) ",
   "scripts": {
-    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
-    "build": "npm run clean && npm run build:webpack",
-    "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
-    "clean": "rimraf dist",
+    "build": "webpack -p",
+	"dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline",
     "start": "node devServer.js",
     "tunnel": "browser-sync start --proxy localhost:9070 --tunnel ryuest"
   },
