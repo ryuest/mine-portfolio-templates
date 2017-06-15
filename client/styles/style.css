@@ -1,129 +1,138 @@
-@import '_normalize.styl'
-@import '_typography.styl'
-@import '_animations.styl'
+html {
+  font-size: 10px;
+  font-family: sans-serif;
+  line-height: 1;
+}
 
-html
-  font-size 10px
-  font-family sans-serif
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
 
-p
-  font-size 1.6rem
-  line-height 1.5
+h2 {
+  font-family: billabong, 'billabongregular'
+  margin-left: 12px
+  font-size: 2rem
+}
 
-h2
-  font-family billabong, 'billabongregular'
-  margin-left 12px
-  font-size 2rem
+.betslip-footer__sub__clearslip {
+  font-family: billabong, 'billabongregular'
+  font-size: 2rem
+}
 
-.betslip-footer__sub__clearslip
-  font-family billabong, 'billabongregular'
-  font-size 2rem
+.navbar-brand {
+  font-family: billabong, 'billabongregular'
+  font-size: 4rem
+}
 
-.navbar-brand
-  font-family billabong, 'billabongregular'
-  font-size 4rem
+h1 {
+  font-family: billabong, 'billabongregular'
+  text-align: left
+  font-weight: 100
+  font-size: 4rem
+  letter-spacing: -1px
+  margin-left: 12px;
+  text-shadow: 0px 4px 0 rgba(18, 86, 136, 0.11)
+}
 
-h1
-  font-family billabong, 'billabongregular'
-  text-align left
-  font-weight 100
-  font-size 4rem
-  letter-spacing -1px
-  text-shadow 0px 4px 0 rgba(18, 86, 136, 0.11)
-
-body
- color #222
- font-family Arial,Helvetica,"Helvetica Neue",sans-serif
- font-size 16px
+body {
+ color: #222
+ font-family: Arial,Helvetica,"Helvetica Neue",sans-serif
+ font-size: 16px
  background: #d9d9d9;
+}
 
-a
+a {
  color: #248CB3;
  font-weight: 700;
  line-height: inherit;
+}
 
-h1
- margin-left: 12px;
-
-.fl h2
- display block
+.fl h2 {
+ display: block
  padding-right: 10px;
  font-size 1.5em
- font-weight bold
- -webkit-margin-before 0.83em
- -webkit-margin-after 0.83em
- -webkit-margin-start 2px
- -webkit-margin-end 2px
+ font-weight: bold
+ -webkit-margin-before: 0.83em
+ -webkit-margin-after: 0.83em
+ -webkit-margin-start: 2px
+ -webkit-margin-end: 2px
+}
 
-h3
- display block
- font-size 1.17em
- -webkit-margin-before 1em
- -webkit-margin-after 1em
- -webkit-margin-start 0px
- -webkit-margin-end 0px
- font-weight bold
+h3 {
+ display: block
+ font-size: 1.17em
+ -webkit-margin-before: 1em
+ -webkit-margin-after: 1em
+ -webkit-margin-start: 0px
+ -webkit-margin-end: 0px
+ font-weight: bold
+}
 
-fl
- float left
+fl {
+ float: left
+}
 
-aside, div, header, a, i, p, section, nav, span, ul, li, ol
- margin 0
- padding 0
- border 0
- font inherit
- font-size 100%
- vertical-align baseline
+aside, div, header, a, i, p, section, nav, span, ul, li, ol {
+ margin: 0
+ padding: 0
+ border: 0
+ font: inherit
+ font-size: 100%
+ vertical-align: baseline
+}
 
-aside, div, footer, header, main, menu, nav, section
+aside, div, footer, header, main, menu, nav, section {
  display: block;
+}
 
-li
+li {
  display: list-item;
+}
 
-ol, ul
+ol, ul {
  list-style: none;
+}
 
-ul
+ul {
  display: block;
  margin-before: 1em;
  margin-after: 1em;
  margin-start: 0px;
  margin-end: 0px;
  padding-start: 40px;
+}
 
-html
- line-height 1
+.button, button-clear {
+ -moz-transition: background-color .25s linear
+ -o-transition: background-color .25s linear
+ -webkit-transition: background-color .25s linear
+ transition: background-color .25s linear
+ -webkit-user-select: none
+ -khtml-user-select: none
+ -moz-user-select: none
+ -ms-user-select: none
+ user-select: none
+ color: #fff
+ cursor: pointer
+ line-height: 1.2em
+ margin: 0
+ padding: .8em 1.6em
+ text-align: center
+ vertical-align: middle
+ -moz-border-radius: .3125em
+ -webkit-border-radius: .3125em
+ border-radius: .3125em
+ border: 1px solid transparent
+ font-weight: 700
+ background-color: #184b74
+ font-size: 12px
+ display: inline-block
+}
 
-.button, button-clear
- -moz-transition background-color .25s linear
- -o-transition background-color .25s linear
- -webkit-transition background-color .25s linear
- transition background-color .25s linear
- -webkit-user-select none
- -khtml-user-select none
- -moz-user-select none
- -ms-user-select none
- user-select none
- color #fff
- cursor pointer
- line-height 1.2em
- margin 0
- padding .8em 1.6em
- text-align center
- vertical-align middle
- -moz-border-radius .3125em
- -webkit-border-radius .3125em
- border-radius .3125em
- border 1px solid transparent
- font-weight 700
- background-color #184b74
- font-size 12px
- display inline-block
-
-.off-canvas_inner-wrapper
- display flex
- height calc(100vh - 56px)
+.off-canvas_inner-wrapper {
+ display: flex
+ height: calc(100vh - 56px)
  justify-content: flex-start
  margin-top: 56px;
  margin-right: auto;
@@ -134,8 +143,9 @@ html
  position: relative;
  width: 100%;
  background #D9D9D9
+}
 
-.off-canvas_left
+.off-canvas_left {
  float: left;
  position: relative;
  left: 0;
@@ -143,9 +153,10 @@ html
  width: auto;
  padding-left: 12px;
  background blue
+}
 
 
-.off-canvas_main
+.off-canvas_main {
  width: calc(100% - 584px);
  margin-top: 0;
  overflow-y: auto;
@@ -155,13 +166,15 @@ html
  margin-right: 20px
  flex-basis: fit-content
  flex-grow: 1;
- background #EDEDED
+ background: #EDEDED
+}
 
-.markets-group-container div
+.markets-group-container div {
  margin-left: 2px
  margin-right: 2px
+}
 
-.off-canvas_right
+.off-canvas_right {
  float: left;
  position: relative;
  left: 0;
@@ -172,11 +185,13 @@ html
  padding-right: 178px;
  background blue
  flex-grow: 0;
+}
 
-.ui
+.ui {
  right: 10px
+}
 
-.betslipwrapper
+.betslipwrapper {
  background: #FFF;
  bottom: 0;
  overflow-y: auto;
@@ -186,40 +201,47 @@ html
  top: 12px;
  width: 198px;
  margin-bottom: 12px;
+}
 
-.betslip-container
+.betslip-container {
  font-family: Arial;
  font-size: 12px;
  line-height: 1.5;
  cursor: pointer;
+}
 
-.betslip-section
+.betslip-section {
  height: auto;
  overflow-y: hidden;
  overflow-x: hidden;
+}
 
-.betslip-navigation
+.betslip-navigation {
  font-size: 12px;
  overflow: auto;
  text-align: center;
+}
 
-.betslip-selections-wrapper
+.betslip-selections-wrapper {
  position: relative;
  padding-right: 10px;
  padding-bottom: 10px;
  padding-left: 10px;
+}
 
-.betslip-navigation_menu
+.betslip-navigation_menu {
  align-items: stretch;
  display: flex;
  justify-content: space-between;
+}
 
-.betslip-navigation_menu-item
+.betslip-navigation_menu-item {
  flex: 1;
  height: 44px;
  text-align: center;
+}
 
-.betslip-navigation_menu-link
+.betslip-navigation_menu-link {
  background: #fff;
  border-top: 4px solid #007ac0;
  color: #007ac0;
@@ -229,13 +251,15 @@ html
  padding: 0 8px;
  width: 100%;
  text-align: center;
+}
 
-.betslip-navigation_menu-text
+.betslip-navigation_menu-text {
  padding-top: 2px;
  display: table-cell;
  vertical-align: middle;
+}
 
-.left-nav
+.left-nav {
  list-style: none;
  margin-left: 0;
  top: 12px;
@@ -244,66 +268,64 @@ html
  font-size: 14px;
  overflow-y: auto;
  position: relative;
+}
 
-.tabs_panels
- position relative
- overflow hidden
- width 100%
+.tabs_panels {
+ position: relative
+ overflow: hidden
+ width: 100%
+}
 
-.tabs_panels
- display block
- margin-bottom 1em
- overflow hidden
+.tabs_panels {
+ display: block
+ margin-bottom: 1em
+ overflow: hidden
+}
 
-.sectionheading
- line-height 36px
- margin-bottom 4px
- max-width 100%
- margin-left auto
- margin-right auto
- position relative
- font-size 1.16667em
- padding 1em 0 .5em
- line-height 20px
+.sectionheading {
+ line-height: 36px
+ margin-bottom: 4px
+ max-width: 100%
+ margin-left: auto
+ margin-right: auto
+ position: relative
+ font-size: 1.16667em
+ padding: 1em 0 .5em
+ line-height: 20px
+}
 
-.cap
- text-transform capitalize
+.cap {
+ text-transform: capitalize
+}
 
-.sport-container
- width 100%
- float left
- font-size .75em
+.sport-container {
+ width: 100%
+ float: left
+ font-size: .75em
+}
 
-.header-dropdown
- position relative
- width 100%
- background-color #007ac0
- color #fff
- display table
- height 3.33333em
- margin-bottom 1px
- padding-left .75em
- padding-right .75em
- font-size 14px
+.header-dropdown {
+ position: relative
+ width: 100%
+ background-color: #007ac0
+ color: #fff
+ display: table
+ height: 3.33333em
+ margin-bottom: 1px
+ padding-left: .75em
+ padding-right: .75em
+ font-size: 14px
+}
 
-.icon, [class*=" icon-"], [class^=icon-]
- font-family whIconFont
- speak none
- font-style normal
- font-weight 400
- font-variant normal
- text-transform none
- -webkit-font-smoothing antialiased
-
-.betbutton
- background #dadfe5
- font-size 12px
- margin-bottom 0
- padding .9em .125em
- width 100%
- outline 0
- color #222
- cursor pointer
+.betbutton {
+ background: #dadfe5
+ font-size: 12px
+ margin-bottom: 0
+ padding: .9em .125em
+ width: 100%
+ outline: 0
+ color: #222
+ cursor: pointer
  transition: background .25s ease-out;
  border-radius: 4px;
  border: 0;
@@ -314,12 +336,14 @@ html
  max-width: 100%;
  vertical-align: middle;
  user-select: none;
+}
 
-.market_wrapper
+.market_wrapper {
  background-color: #FFF;
  padding: .25rem .5rem;
+}
 
-.market
+.market {
  flex-wrap: wrap;
  background-color: #FFF;
  font-size: 12px;
@@ -327,24 +351,27 @@ html
  margin-left: -.25rem;
  margin-right: -.25rem;
  padding: .125rem 0;
+}
 
-.market_content
+.market_content {
  flex: 0 0 50%;
  max-width: 50%;
  justify-content: space-between;
  position: relative;
  align-items: center;
  padding: 0 .25rem;
+}
 
-.market_name
+.market_name {
  font-weight: 700;
  font-size: 12px;
  line-height: 1;
  color: #248CB3;
  cursor: pointer;
  text-decoration: none;
+}
 
-.market_link-name
+.market_link-name {
  display: flex;
  flex-direction: column;
  overflow: hidden;
@@ -352,40 +379,46 @@ html
  white-space: nowrap;
  width: 100%;
  line-height: 1.25;
+}
 
-.market_actions
+.market_actions {
  flex: 1
  justify-content: space-around;
  display: flex;
  flex-wrap: wrap;
+}
 
-.market_selection
- justify-content space-between
- position relative
- text-align center
- width 100%
- flex 1
- flex-direction column
- display flex
- padding .125rem .25rem
- align-self center
+.market_selection {
+ justify-content: space-between
+ position: relative
+ text-align: center
+ width: 100%
+ flex: 1
+ flex-direction: column
+ display: flex
+ padding: .125rem .25rem
+ align-self: center
+}
 
-.btmarket__content-marginrs
+.btmarket__content-marginrs {
  flex: 1;
  max-width: calc(100% - 25px);
+}
 
-.betgroup
+.betgroup {
  float: left;
  width: 100%;
+}
 
-.sport-container
+.sport-container {
  width: 100%;
  float: left;
  font-size: .75em;
  min-width: 1000px
+}
 
-.c-list_item
- display flex
+.c-list_item {
+ display: flex
  background-color: #FFF;
  border-left: 8px solid #007AC0;
  color: #007AC0;
@@ -394,18 +427,21 @@ html
  border-bottom: 1px solid rgba(0,66,125,.1);
  padding: 12px;
  text-decoration: none;
+}
 
-.board-row:after
+.board-row:after {
  clear: both;
  content: "";
  display: table;
+}
 
-.status
+.status {
  margin-bottom: 10px;
  align-items: center;
  text-align: center;
+}
 
-.square
+.square {
  background: #fff;
  border: 1px solid #999;
  float: left;
@@ -418,14 +454,17 @@ html
  padding: 0;
  text-align: center;
  width: 54px;
+}
 
-.square:focus
+.square:focus {
  outline: none;
+}
 
-.kbd-navigation .square:focus
+.kbd-navigation .square:focus {
  background: #ddd;
+}
 
-.betslip-selection
+.betslip-selection {
  margin: 0;
  padding: 0;
  border: 0;
@@ -436,8 +475,9 @@ html
  background: #eceef2;
  border-radius: 2px;
  margin-bottom: 8px;
+}
 
-.betslip-selection header
+.betslip-selection header {
  margin: 0;
  padding: 0;
  border: 0;
@@ -450,8 +490,9 @@ html
  font-size: 14px;
  font-weight: 700;
  padding: 12px 8px 4px;
+}
 
-.betslip-selection_input input
+.betslip-selection_input input {
  border-radius: 2px;
  font-size: 14px;
  height: 40px;
@@ -466,19 +507,22 @@ html
  display: inline-block;
  font: inherit;
  margin: 0
+}
 
-.betslip-footer__sub__clearslip a
+.betslip-footer__sub__clearslip a {
  margin-top: 25px;
  padding: 0;
  border: 0;
  font: inherit;
  font-size: 150%;
  vertical-align: baseline;
+}
 
-.betslip-bet-actions
+.betslip-bet-actions {
  align-items: center;
+}
 
-.betslip-bet-actions button
+.betslip-bet-actions button {
  border: 0;
  border-radius: 2px;
  cursor: pointer;
@@ -488,8 +532,9 @@ html
  padding: 12px 16px;
  transition: .33333s;
  background: #53e500;
+}
 
-.betslip-footer__total-stake-price span
+.betslip-footer__total-stake-price span {
  margin: 0;
  padding: 0;
  border: 0;
@@ -497,16 +542,18 @@ html
  font-size: 100%;
  vertical-align: baseline;
  text-align: right;
+}
 
-.betslip-footer__to-return-price-container
+.betslip-footer__to-return-price-container {
  margin: 0;
  padding: 0;
  border: 0;
  font: inherit;
  font-size: 100%;
  vertical-align: baseline;
+}
 
-.betslip-footer__to-return-label
+.betslip-footer__to-return-label {
  margin: 0;
  padding: 0;
  border: 0;
@@ -514,8 +561,9 @@ html
  font-size: 100%;
  vertical-align: baseline;
  display: table-cell;
+}
 
-.betslip-footer__totals
+.betslip-footer__totals {
  margin: 0;
  padding: 0;
  border: 0;
@@ -523,8 +571,9 @@ html
  font-size: 100%;
  vertical-align: baseline;
  margin-bottom: 8px!important;
+}
 
-.betslip-selection_stake
+.betslip-selection_stake {
  margin: 0;
  padding: 0;
  border: 0;
@@ -533,8 +582,9 @@ html
  vertical-align: baseline;
  padding-top: 8px;
  position: relative;
+}
 
-.u-highlight
+.u-highlight {
  margin: 0;
  padding: 0;
  border: 0;
@@ -542,16 +592,18 @@ html
  font-size: 100%;
  vertical-align: baseline;
  color: #007ac0;
+}
 
-.betslip-selection_event
+.betslip-selection_event {
  margin: 0;
  padding: 0;
  border: 0;
  font: inherit;
  font-size: 100%;
  vertical-align: baseline;
+}
 
-.betslip-selection_content
+.betslip-selection_content {
  margin: 0;
  line-height: 1.1;
  padding: 0 8px 12px;
@@ -561,8 +613,9 @@ html
  font-size: 100%;
  vertical-align: baseline;
  padding-top: 4px;
+}
 
-.betslip-header header
+.betslip-header header {
  margin: 0;
  padding: 0;
  border: 0;
@@ -572,8 +625,9 @@ html
  font-size: 14px;
  font-weight: 700;
  margin-bottom: 8px;
+}
 
-#bets-container-singles
+#bets-container-singles {
  margin: 0;
  padding: 0;
  border: 0;
@@ -581,8 +635,9 @@ html
  font-size: 100%;
  vertical-align: baseline;
  box-sizing: border-box;
+}
 
-.receipt-notice-box
+.receipt-notice-box {
  flex-grow: 2
  flex-shrink: 1
  flex-basis: auto
@@ -600,20 +655,24 @@ html
  border-radius: 2px
  border-style: solid
  border-width: 1px
+}
 
-.betslip-header
+.betslip-header {
  position: relative
+}
 
-.betslip-receipt_details
+.betslip-receipt_details {
  display: block
+}
 
-.betslip-receipt_subheader
+.betslip-receipt_subheader {
  font-size: 16px
  font-weight: 700
  line-height: 1.125
  padding-top: 12px
+}
 
-.betslip-receipt-selection
+.betslip-receipt-selection {
  background: #f6f7f9
  padding: 0 8px 8px
  margin: 0
@@ -622,8 +681,9 @@ html
  font: inherit
  font-size: 100%
  vertical-align: baseline
+}
 
-.betslip-receipt-selection_row
+.betslip-receipt-selection_row {
  padding-top: 4px
  padding-right: 0px
  padding-bottom: 4px
@@ -632,34 +692,41 @@ html
  font: inherit
  font-size: 100%
  vertical-align: baseline
+}
 
-.betslip-receipt-returns
+.betslip-receipt-returns {
  padding-top: 8px
  padding-right: 8px
  padding-bottom: 8px
  padding-left: 8px
  background: #ecedf2
+}
 
-.u-bold
+.u-bold {
  font-weight: 700
+}
 
-.u-padding-right-tiny
+.u-padding-right-tiny {
  4px!important
+}
 
-.betslip-receipt-returns_amount
+.betslip-receipt-returns_amount {
  color: #3da800
  font-weight: 700
+}
 
-.betslip-receipt-returns_label
+.betslip-receipt-returns_label {
  padding-right: 4px
+}
 
-#closeButton
+#closeButton {
  color: #a2a2a2;
  line-height: 1;
  position: absolute;
  right: 8px;
+}
 
-.examples h3
+.examples h3 {
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -667,21 +734,25 @@ html
  text-align: center;
  padding-right: 50px;
  padding-left: 50px;
+}
 
-.example
+.example {
  display: flex;
  flex-direction: column;
  align-items: center;
  margin-top: 10px;
+}
 
-.likes-container
+.likes-container {
  display: flex;
  flex-direction: column;
  align-items: center;
  margin-top: 10px;
+}
 
-.game-board
+.game-board {
  display: flex;
  flex-direction: column;
  align-items: center;
  margin-top: 10px;
+}
