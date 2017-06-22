@@ -3,6 +3,7 @@ import { syncHistoryWithStore} from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import { composeWithDevTools} from 'redux-devtools-extension';
 import actions from './actions/actionCreators';
+import "babel-polyfill"
 
 // import all reducers
 import rootReducer from './reducers/index';

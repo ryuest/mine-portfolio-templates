@@ -22,7 +22,8 @@ class CenterTabs extends React.Component {
                                         <div className="events-group-container">
                                             <section id="market_wrapper-in-play">
                                                 {Object.keys(this.state.events).map(key =>
-                                                  <Event key={key}
+                                                  <Event
+                                                    key={key}
                                                     details={this.state.events[key]}
                                                     {...this.props}/>)}
                                             </section>
@@ -33,24 +34,7 @@ class CenterTabs extends React.Component {
                         </span>
                     </section>
                 </div>
-                <div>
-                  <form>
-      <div>
-        <input id="email" type="text" placeholder="Email..."/>
-      </div>
-      <div>
-        <input id="password" type="password" placeholder="Password..."/>
-      </div>
-      <div>
-        <button id="sign-in">Sign In/Register</button>
-        <button id="sign-out">Sign Out</button>
-      </div>
-    </form>
-
-                </div>
             </div>
-
-
         )
     }
 }
@@ -73,11 +57,7 @@ class Event extends React.Component {
                             </li>
                         </ul>
                     </div>
-                    {details.markets.map((market, i) =>
-                      <Market
-                        key={i}
-                        market={market}
-                        {...this.props}/>)}
+                    {details.markets.map((market, i) => <Market key={i} market={market} {...this.props}/>)}
                 </div>
             </div>
         )
@@ -89,12 +69,7 @@ const Market = React.createClass({
         const {market} = this.props;
         return (
             <div id={market.id} className="market_actions" data-displayed="data-displayed from JSON" data-status="data-status from JSON">
-                {market.selections.map((selection, i) =>
-                  <Selection
-                    key={i}
-                    selection={selection}
-                    {...this.props}
-                    />)}
+                {market.selections.map((selection, i) => <Selection key={i} selection={selection} {...this.props}/>)}
             </div>
         )
     }
@@ -112,7 +87,6 @@ class Selection extends React.Component {
 
     addToSelectedList(selection) {
         if (!this.state.isSelected) {
-            //  selection.isSelected = true
             this.setState({isSelected: true, colorGreen: true});
             this.props.getSelection(selection)
             if (this.props.betslip.receipt) {
@@ -160,14 +134,10 @@ const Sport = ({sport}) => {
     return (
         <div className="sport-container">
             <header className="header-dropdown">
-                <h2 className="fl">{sport}</h2>
+                <h3 className="fl">{sport}</h3>
             </header>
         </div>
     )
 }
-
-CenterTabs.propTypes = {
-    details: React.PropTypes.object
-};
 
 export default CenterTabs;

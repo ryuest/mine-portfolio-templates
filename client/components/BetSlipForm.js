@@ -3,12 +3,23 @@ import actions from '../actions/actionCreators';
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Input, Button, Message} from 'semantic-ui-react';
+import {ref} from '../data/baseConfig'
 
 class BetSlipForm extends Component {
 
     placeBetGetReceipt(data, selections) {
         this.props.placeBet(data, selections)
         this.props.getReceipt()
+        this.saveBet(data, selections)
+    }
+
+     saveBet (data, selections) {
+      ref.child(`users/vypa5Y5ucDMm91sHEXF8knBEemF3/info/bets`) // TO-DO users firebaseAuth
+        .set({
+          stakes: data,
+          selections: selections
+        })
+        .then(() => data)
     }
 
     render() {
@@ -36,15 +47,12 @@ class BetSlipSelection extends Component {
       this.setState( {winTotal:winTotal})
     }
 
-    renderInput({input, selection: {
-            selection
-        }}) {
+    renderInput({input, selection: {selection}}) {
         return (
             <div>
                 <Input placeholder="🎣 0.00" {...input} autoComplete="new-bet" />
             </div>
         )}
-
     render() {
         return (
             <div id={"single-bet_" + this.props.selection.selection.id} className="betslip-selection">
@@ -76,7 +84,7 @@ class BetSlipSelection extends Component {
         )}}
 
 BetSlipForm = reduxForm({
-    form: 'contact', // a unique identifier for this form
+    form: 'bet', // a unique identifier for this form
 })(BetSlipForm)
 
 export default BetSlipForm;

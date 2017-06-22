@@ -21,14 +21,14 @@ render() {
                     <nav className="betslip-navigation">
                         <ul className="betslip-navigation_menu">
                             <li id="betslip-tab" className="betslip-navigation_menu-item">
-                                <a className="betslip-navigation_menu-link" href="/TODO">
+                                <div className="betslip-navigation_menu-link">
                                     <span className="betslip-navigation_menu-text">Bet Slip</span>
-                                </a>
+                                </div>
                             </li>
                             <li id="openbets-tab" className="betslip-navigation_menu-item">
-                                <a className="betslip-navigation_menu-link" href="/TODO">
+                                <div className="betslip-navigation_menu-link">
                                     <span className="betslip-navigation_menu-text">Open Bets</span>
-                                </a>
+                                </div>
                             </li>
                         </ul>
                     </nav>

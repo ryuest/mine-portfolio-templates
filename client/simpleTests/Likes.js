@@ -7,7 +7,7 @@ class Likes extends React.Component {
             <div className="sport-container">
                 <header className="header-dropdown">
                   <h2 className="fl">{post.likes}</h2>
-                  <button 
+                  <button
                   className="likes">&hearts; {post.likes}</button>
                 </header>
             </div>
@@ -16,6 +16,3 @@ class Likes extends React.Component {
 }
 
 export default Likes;
-//<h2 className="fl">{post.likes}</h2>
-//<button onClick={this.props.increment.bind(null, 0)}
-//className="likes">&hearts; {post.likes}</button>
