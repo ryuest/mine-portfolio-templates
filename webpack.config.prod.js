@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   entry: [
 	'babel-polyfill',
-    './client/index.js'
+    './client/index.js', './client/routes.js'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -30,7 +30,7 @@ module.exports = {
     // js
     {
       test: /\.js$/,
-      loaders: ['babel'],
+      loaders: ['babel-loader'],
       include: path.join(__dirname, 'client')
     },
     // CSS

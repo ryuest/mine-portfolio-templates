@@ -2,7 +2,7 @@ import React from 'react';
 import LeftMenuPageItem from './LeftMenuPageItem';
 import CenterTabs from './CenterTabs';
 import RightPanel from './RightPanel';
-import Account from './Account'
+import Account from './Account';
 
 class App extends React.Component {
     render() {
@@ -15,7 +15,7 @@ class App extends React.Component {
                                 {Object.keys(this.props.pages).map(key => <LeftMenuPageItem key={key} details={this.props.pages[key]}/>)}
                                 <li className="c-list_item">
                                     <a className="c-list_external"
-                                      href="https://github.com/ryuest/mine-portfolio-templates"
+                                      href="https://github.com/ryuest/mine-portfolio-final"
                                       title="GitHub" id="nav-github">GitHub
                                     </a>
                                 </li>

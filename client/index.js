@@ -8,10 +8,11 @@ import App from './components/App';
 import { Router, Route, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
+import AppStateToProps from './components/AppStateToProps';
 
 const router = (
   <Provider store={store}>
-    <Router history={history} routes={routes} />
+    <AppStateToProps />
   </Provider>
 )
 
@@ -22,3 +23,6 @@ ReactDOM.render(
 );
 
 //store.subscribe(App)
+//<Provider store={store}>
+//  <Router history={history} routes={routes} />
+//</Provider>

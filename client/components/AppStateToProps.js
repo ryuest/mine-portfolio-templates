@@ -20,6 +20,6 @@ const mapStateToProps = (state) => ({
     stakes: state.stakes
 });
 
-const AppStateToProps = connect(mapStateToProps, mapDispachToProps)(Main);
+const AppStateToProps = connect(mapStateToProps, mapDispachToProps)(App);
 
 export default AppStateToProps;
